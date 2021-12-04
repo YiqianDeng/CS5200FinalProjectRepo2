@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name="pet_owner")
+@Table(name="pet_owners")
 public class PetOwner extends People{
     private int numberOfVisit;
 
