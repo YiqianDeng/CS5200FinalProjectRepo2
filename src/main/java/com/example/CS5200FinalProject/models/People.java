@@ -1,5 +1,6 @@
 package com.example.CS5200FinalProject.models;
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name="people")
@@ -12,7 +13,7 @@ public class People {
     private String lastName;
     private String email;
     private String phone;
-    private String dateOfBirth;
+    private Date dateOfBirth;
     private String username;
     private String password;
 
@@ -60,11 +61,11 @@ public class People {
         this.phone = phone;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -84,7 +85,7 @@ public class People {
         this.password = password;
     }
 
-    public People(String first_name, String last_name, String email, String phone, String date_of_birth, String username, String password) {
+    public People(String first_name, String last_name, String email, String phone, Date date_of_birth, String username, String password) {
         this.firstName = first_name;
         this.lastName = last_name;
         this.email = email;
