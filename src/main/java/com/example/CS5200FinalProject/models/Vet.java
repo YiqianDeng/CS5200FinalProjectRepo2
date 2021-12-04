@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name="vets")
+@Table(name="vet")
 public class Vet extends People {
 
     private String specialty;
