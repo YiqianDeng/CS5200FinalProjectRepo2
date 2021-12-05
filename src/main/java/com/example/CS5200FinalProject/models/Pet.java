@@ -13,9 +13,11 @@ public class Pet {
     @GeneratedValue
     private Integer id;
 
-    @ManyToOne
-    @JsonIgnore
-    private PetOwner petOwner;
+//    @ManyToOne
+//    @JsonIgnore
+//    private PetOwner petOwner;
+
+    private String petOwner;
     private String species;
     private int age;
 
@@ -35,11 +37,19 @@ public class Pet {
         this.id = id;
     }
 
-    public PetOwner getPetOwner() {
+//    public PetOwner getPetOwner() {
+//        return petOwner;
+//    }
+//
+//    public void setPetOwner(PetOwner petOwner) {
+//        this.petOwner = petOwner;
+//    }
+
+    public String getPetOwner() {
         return petOwner;
     }
 
-    public void setPetOwner(PetOwner petOwner) {
+    public void setPetOwner(String petOwner) {
         this.petOwner = petOwner;
     }
 
@@ -78,7 +88,7 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(PetOwner petOwner, String species, int age) {
+    public Pet(String petOwner, String species, int age) {
         this.petOwner = petOwner;
         this.species = species;
         this.age = age;
