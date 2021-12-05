@@ -31,7 +31,7 @@ public class ReservationDao {
         return repository.findReservationById(id);
     }
 
-    @PutMapping("/api/reservation/{id}}")
+    @PutMapping("/api/reservation/{id}")
     public Reservation updateReservation(
             @PathVariable("id") Integer id,
             @RequestBody Reservation reservationUpdate) {
