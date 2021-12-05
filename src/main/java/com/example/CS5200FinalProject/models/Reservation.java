@@ -23,9 +23,9 @@ public class Reservation {
 
     private Time time;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "reservation")
     @JsonIgnore
-    private List<Service> services;
+    private List<ReserveService> reserveServices;
 
     public int getId() {
         return id;
@@ -35,12 +35,12 @@ public class Reservation {
         this.id = id;
     }
 
-    public List<Service> getServices() {
-        return services;
+    public List<ReserveService> getReserveServices() {
+        return reserveServices;
     }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
+    public void setReserveServices(List<ReserveService> reserveServices) {
+        this.reserveServices = reserveServices;
     }
 
     public Vet getVet() {

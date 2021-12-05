@@ -29,17 +29,17 @@ public class HistoryDao {
         return repository.findHistoriesById(id);
     }
 
-    @GetMapping("/api/history/{id}")
-    public History updateHistory(
-            @PathVariable("id") Integer id,
-            @RequestBody History historyUpdate) {
-        History history = repository.findHistoriesById(id);
-        history.setServices(historyUpdate.getServices());
-        history.setVet(historyUpdate.getVet());
-        history.setPet(historyUpdate.getPet());
-        history.setTime(historyUpdate.getTime());
-        return repository.save(history);
-    }
+//    @GetMapping("/api/history/{id}")
+//    public History updateHistory(
+//            @PathVariable("id") Integer id,
+//            @RequestBody History historyUpdate) {
+//        History history = repository.findHistoriesById(id);
+//        history.setServices(historyUpdate.getServices());
+//        history.setVet(historyUpdate.getVet());
+//        history.setPet(historyUpdate.getPet());
+//        history.setTime(historyUpdate.getTime());
+//        return repository.save(history);
+//    }
 
     @DeleteMapping("api/history/{id}")
     public void deleteHistory(

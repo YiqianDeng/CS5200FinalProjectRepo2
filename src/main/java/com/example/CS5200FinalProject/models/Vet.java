@@ -12,15 +12,15 @@ public class Vet extends People {
     private String specialty;
     private int tenure;
 
-    @OneToMany
+    @OneToMany(mappedBy = "vet")
     @JsonIgnore
     private List<Availability> availabilities;
 
-    @OneToMany
+    @OneToMany(mappedBy = "vet")
     @JsonIgnore
     private List<History> histories;
 
-    @OneToMany
+    @OneToMany(mappedBy = "vet")
     @JsonIgnore
     private List<Reservation> reservations;
 

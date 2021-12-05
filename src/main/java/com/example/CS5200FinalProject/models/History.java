@@ -22,9 +22,9 @@ public class History {
 
     private Time time;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "history")
     @JsonIgnore
-    private List<Service> services;
+    private List<HistoryService> historyServices;
 
     public int getId() {
         return id;
@@ -34,12 +34,12 @@ public class History {
         this.id = id;
     }
 
-    public List<Service> getServices() {
-        return services;
+    public List<HistoryService> getHistoryServices() {
+        return historyServices;
     }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
+    public void setHistoryServices(List<HistoryService> historyServices) {
+        this.historyServices = historyServices;
     }
 
     public Vet getVet() {

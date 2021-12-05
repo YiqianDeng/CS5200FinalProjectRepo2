@@ -13,13 +13,13 @@ public class Service {
     private ServiceName name;
     private double cost;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "service")
     @JsonIgnore
-    private List<Reservation> reservations;
+    private List<ReserveService> reserveServices;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "service")
     @JsonIgnore
-    private List<History> histories;
+    private List<HistoryService> historyServices;
 
     public int getId() {
         return id;
@@ -45,20 +45,20 @@ public class Service {
         this.cost = cost;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<ReserveService> getReserveServices() {
+        return reserveServices;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReserveServices(List<ReserveService> reserveServices) {
+        this.reserveServices = reserveServices;
     }
 
-    public List<History> getHistories() {
-        return histories;
+    public List<HistoryService> getHistoryServices() {
+        return historyServices;
     }
 
-    public void setHistories(List<History> histories) {
-        this.histories = histories;
+    public void setHistoryServices(List<HistoryService> historyServices) {
+        this.historyServices = historyServices;
     }
 
     public Service() {
