@@ -10,7 +10,7 @@ import java.util.List;
 public class PetOwner extends People{
     private int numberOfVisit;
 
-    @OneToMany(mappedBy = "pet_owner")
+    @OneToMany
     @JsonIgnore
     private List<Pet> pets;
 

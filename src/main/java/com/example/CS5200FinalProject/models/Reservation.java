@@ -23,7 +23,7 @@ public class Reservation {
 
     private Time time;
 
-    @OneToMany(mappedBy = "reservation")
+    @ManyToMany
     @JsonIgnore
     private List<Service> services;
 

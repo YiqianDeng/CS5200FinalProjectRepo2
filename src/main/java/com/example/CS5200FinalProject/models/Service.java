@@ -13,11 +13,11 @@ public class Service {
     private ServiceName name;
     private double cost;
 
-    @OneToMany(mappedBy = "service")
+    @ManyToMany
     @JsonIgnore
     private List<Reservation> reservations;
 
-    @OneToMany(mappedBy = "service")
+    @ManyToMany
     @JsonIgnore
     private List<History> histories;
 

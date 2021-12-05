@@ -19,11 +19,11 @@ public class Pet {
     private String category;
     private int age;
 
-    @OneToMany(mappedBy = "pet")
+    @OneToMany
     @JsonIgnore
     private List<Reservation> reservations;
 
-    @OneToMany(mappedBy = "pet")
+    @OneToMany
     @JsonIgnore
     private List<History> histories;
 

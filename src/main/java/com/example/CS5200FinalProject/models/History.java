@@ -22,7 +22,7 @@ public class History {
 
     private Time time;
 
-    @OneToMany(mappedBy = "history")
+    @ManyToMany
     @JsonIgnore
     private List<Service> services;
 
