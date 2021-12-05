@@ -3,7 +3,10 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name="people")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE", discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorValue("person")
+@Table(name = "people")
 public class People {
 
     @Id

@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name="vet")
+@DiscriminatorValue("vet")
 public class Vet extends People {
 
     private String specialty;
