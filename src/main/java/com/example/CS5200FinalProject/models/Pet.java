@@ -16,7 +16,7 @@ public class Pet {
     @ManyToOne
     @JsonIgnore
     private PetOwner petOwner;
-    private String category;
+    private String species;
     private int age;
 
     @OneToMany
@@ -43,12 +43,12 @@ public class Pet {
         this.petOwner = petOwner;
     }
 
-    public String getCategory() {
-        return category;
+    public String getSpecies() {
+        return species;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setSpecies(String species) {
+        this.species = species;
     }
 
     public int getAge() {
@@ -78,9 +78,9 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(PetOwner petOwner, String category, int age) {
+    public Pet(PetOwner petOwner, String species, int age) {
         this.petOwner = petOwner;
-        this.category = category;
+        this.species = species;
         this.age = age;
     }
 }
