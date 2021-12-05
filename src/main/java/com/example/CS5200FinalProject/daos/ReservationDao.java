@@ -14,8 +14,6 @@ public class ReservationDao {
     @Autowired
     ReservationRepository repository;
 
-
-
     @PostMapping("/api/reservations")
     public Reservation createReservation(@RequestBody Reservation reservation) {
         return repository.save(reservation);
