@@ -29,17 +29,17 @@ public class ReservationDao {
         return repository.findReservationById(id);
     }
 
-//    @PutMapping("/api/reservation/{id}")
-//    public Reservation updateReservation(
-//            @PathVariable("id") Integer id,
-//            @RequestBody Reservation reservationUpdate) {
-//        Reservation reservation = repository.findReservationById(id);
-//        reservation.setServices(reservationUpdate.getServices());
-//        reservation.setVet(reservationUpdate.getVet());
-//        reservation.setPet(reservationUpdate.getPet());
-//        reservation.setTime(reservationUpdate.getTime());
-//        return repository.save(reservation);
-//    }
+    @PutMapping("/api/reservation/{id}")
+    public Reservation updateReservation(
+            @PathVariable("id") Integer id,
+            @RequestBody Reservation reservationUpdate) {
+        Reservation reservation = repository.findReservationById(id);
+        reservation.setReserveServices(reservationUpdate.getReserveServices());
+        reservation.setVet(reservationUpdate.getVet());
+        reservation.setPet(reservationUpdate.getPet());
+        reservation.setTime(reservationUpdate.getTime());
+        return repository.save(reservation);
+    }
 
     @DeleteMapping("api/reservation/{id}")
     public void deleteReservation(
