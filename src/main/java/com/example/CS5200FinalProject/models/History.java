@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class History {
     @JsonIgnore
     private Pet pet;
 
-    private Time time;
+    private Timestamp time;
 
     @OneToMany(mappedBy = "history")
     @JsonIgnore
@@ -58,18 +59,18 @@ public class History {
         this.pet = pet;
     }
 
-    public Time getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
     public History() {
     }
 
-    public History(Vet vet, Pet pet, Time time) {
+    public History(Vet vet, Pet pet, Timestamp time) {
         this.vet = vet;
         this.pet = pet;
         this.time = time;
