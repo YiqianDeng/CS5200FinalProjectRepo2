@@ -24,12 +24,12 @@ public class HistoryDao {
         return (List<History>) repository.findAll();
     }
 
-    @GetMapping("/api//history/{id}")
+    @GetMapping("/api//histories/{id}")
     public History findHistoryById(@PathVariable("id") Integer id) {
         return repository.findHistoriesById(id);
     }
 
-    @GetMapping("/api/history/{id}")
+    @GetMapping("/api/histories/{id}")
     public History updateHistory(
             @PathVariable("id") Integer id,
             @RequestBody History historyUpdate) {
@@ -41,7 +41,7 @@ public class HistoryDao {
         return repository.save(history);
     }
 
-    @DeleteMapping("api/history/{id}")
+    @DeleteMapping("api/histories/{id}")
     public void deleteHistory(
             @PathVariable("id") Integer id) {
         repository.deleteById(id);

@@ -41,7 +41,7 @@ public class ReservationDao {
         return repository.save(reservation);
     }
 
-    @DeleteMapping("api/reservation/{id}")
+    @DeleteMapping("api/reservations/{id}")
     public void deleteReservation(
             @PathVariable("id") Integer id) {
         repository.deleteById(id);
