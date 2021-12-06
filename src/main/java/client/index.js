@@ -1,15 +1,15 @@
-import UserList from "./components/user-list";
-import UserFormEditor from "./components/user-form-editor";
+import PetListComponent from "./components/PetListComponent";
+import PetEditorComponent from "./components/PetEditorComponent";
 const {HashRouter, Route} = window.ReactRouterDOM;
 const App = () => {
     return (
         <div className="container-fluid">
             <HashRouter>
-                <Route path={["/users", "/"]} exact={true}>
-                    <UserList/>
+                <Route path={["/pets", "/"]} exact={true}>
+                    <PetListComponent/>
                 </Route>
-                <Route path="/users/:id" exact={true}>
-                    <UserFormEditor/>
+                <Route path="/pets/:id" exact={true}>
+                    <PetEditorComponent/>
                 </Route>
             </HashRouter>
         </div>

@@ -3,6 +3,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
+@Table
 @Inheritance(strategy = InheritanceType.JOINED)
 public class People {
 
