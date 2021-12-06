@@ -24,12 +24,12 @@ public class ReservationDao {
         return (List<Reservation>) repository.findAll();
     }
 
-    @GetMapping("/api/reservation/{id}")
+    @GetMapping("/api/reservations/{id}")
     public Reservation findReservationById(@PathVariable("id") Integer id) {
         return repository.findReservationById(id);
     }
 
-    @PutMapping("/api/reservation/{id}")
+    @PutMapping("/api/reservations/{id}")
     public Reservation updateReservation(
             @PathVariable("id") Integer id,
             @RequestBody Reservation reservationUpdate) {

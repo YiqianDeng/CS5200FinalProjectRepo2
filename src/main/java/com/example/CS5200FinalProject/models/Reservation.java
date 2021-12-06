@@ -2,6 +2,7 @@ package com.example.CS5200FinalProject.models;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,7 +22,7 @@ public class Reservation {
     @JsonIgnore
     private Pet pet;
 
-    private Time time;
+    private Timestamp time;
 
     @OneToMany(mappedBy = "reservation")
     @JsonIgnore
@@ -59,18 +60,18 @@ public class Reservation {
         this.pet = pet;
     }
 
-    public Time getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
     public Reservation() {
     }
 
-    public Reservation(Vet vet, Pet pet, Time time) {
+    public Reservation(Vet vet, Pet pet, Timestamp time) {
         this.vet = vet;
         this.pet = pet;
         this.time = time;
