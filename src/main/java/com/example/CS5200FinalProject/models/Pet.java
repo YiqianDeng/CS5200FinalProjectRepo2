@@ -13,19 +13,19 @@ public class Pet {
     @GeneratedValue
     private Integer id;
 
-//    @ManyToOne
-//    @JsonIgnore
-//    private PetOwner petOwner;
+    @ManyToOne
+    @JsonIgnore
+    private PetOwner petOwner;
 
-    private String petOwner;
+//    private String petOwner;
     private String species;
     private int age;
 
-    @OneToMany
+    @OneToMany(mappedBy = "pet")
     @JsonIgnore
     private List<Reservation> reservations;
 
-    @OneToMany
+    @OneToMany(mappedBy = "pet")
     @JsonIgnore
     private List<History> histories;
 
@@ -37,21 +37,26 @@ public class Pet {
         this.id = id;
     }
 
-//    public PetOwner getPetOwner() {
-//        return petOwner;
-//    }
-//
-//    public void setPetOwner(PetOwner petOwner) {
-//        this.petOwner = petOwner;
-//    }
+    @Transient
+    public Integer getPetOwnerId() {
+        return petOwner.getId();
+    }
 
-    public String getPetOwner() {
+    public PetOwner getPetOwner() {
         return petOwner;
     }
 
-    public void setPetOwner(String petOwner) {
+    public void setPetOwner(PetOwner petOwner) {
         this.petOwner = petOwner;
     }
+
+//    public String getPetOwner() {
+//        return petOwner;
+//    }
+//
+//    public void setPetOwner(String petOwner) {
+//        this.petOwner = petOwner;
+//    }
 
     public String getSpecies() {
         return species;
@@ -88,7 +93,7 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(String petOwner, String species, int age) {
+    public Pet(PetOwner petOwner, String species, int age) {
         this.petOwner = petOwner;
         this.species = species;
         this.age = age;

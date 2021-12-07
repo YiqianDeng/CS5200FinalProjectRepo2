@@ -7,10 +7,11 @@ import java.util.List;
 
 @Entity
 @Table(name="pet_owner")
+@PrimaryKeyJoinColumn(name = "id")
 public class PetOwner extends People{
     private int numberOfVisit;
 
-    @OneToMany
+    @OneToMany(mappedBy = "petOwner")
     @JsonIgnore
     private List<Pet> pets;
 

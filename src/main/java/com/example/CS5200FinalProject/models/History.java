@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -20,11 +21,11 @@ public class History {
     @JsonIgnore
     private Pet pet;
 
-    private Time time;
+    private Timestamp time;
 
-    @ManyToMany
+    @OneToMany(mappedBy = "history")
     @JsonIgnore
-    private List<Service> services;
+    private List<HistoryService> historyServices;
 
     public int getId() {
         return id;
@@ -34,12 +35,12 @@ public class History {
         this.id = id;
     }
 
-    public List<Service> getServices() {
-        return services;
+    public List<HistoryService> getHistoryServices() {
+        return historyServices;
     }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
+    public void setHistoryServices(List<HistoryService> historyServices) {
+        this.historyServices = historyServices;
     }
 
     public Vet getVet() {
@@ -50,6 +51,11 @@ public class History {
         this.vet = vet;
     }
 
+    @Transient
+    public Integer getVetId() {
+        return vet.getId();
+    }
+
     public Pet getPet() {
         return pet;
     }
@@ -58,18 +64,23 @@ public class History {
         this.pet = pet;
     }
 
-    public Time getTime() {
+    @Transient
+    public Integer getPetId() {
+        return pet.getId();
+    }
+
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
     public History() {
     }
 
-    public History(Vet vet, Pet pet, Time time) {
+    public History(Vet vet, Pet pet, Timestamp time) {
         this.vet = vet;
         this.pet = pet;
         this.time = time;
