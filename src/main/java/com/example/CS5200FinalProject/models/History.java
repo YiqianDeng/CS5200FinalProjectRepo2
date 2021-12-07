@@ -51,12 +51,22 @@ public class History {
         this.vet = vet;
     }
 
+    @Transient
+    public Integer getVetId() {
+        return vet.getId();
+    }
+
     public Pet getPet() {
         return pet;
     }
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    @Transient
+    public Integer getPetId() {
+        return pet.getId();
     }
 
     public Timestamp getTime() {

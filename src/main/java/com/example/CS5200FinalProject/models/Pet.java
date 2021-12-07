@@ -37,6 +37,11 @@ public class Pet {
         this.id = id;
     }
 
+    @Transient
+    public Integer getPetOwnerId() {
+        return petOwner.getId();
+    }
+
     public PetOwner getPetOwner() {
         return petOwner;
     }

@@ -6,6 +6,7 @@ import HistoryListComponent from "./components/HistoryListComponent";
 import HistoryEditorComponent from "./components/HistoryEditorComponent";
 const {HashRouter, Route} = window.ReactRouterDOM;
 const App = () => {
+    console.log(window.ReactRouterDOM)
     return (
         <div className="container-fluid">
             <HashRouter>

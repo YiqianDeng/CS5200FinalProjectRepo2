@@ -39,8 +39,8 @@ const ReservationListComponent = () => {
                             <Link to={`/reservations/${reservation.id}`}>
                                 <div className="form-group row">
                                     <div className="col-sm-1">{reservation.id}</div>
-                                    <div className="col-sm-2">{reservation.vet}</div>
-                                    <div className="col-sm-2">{reservation.pet}</div>
+                                    <div className="col-sm-2">{reservation.vetId}</div>
+                                    <div className="col-sm-2">{reservation.petId}</div>
                                     <div className="col-sm-6">{reservation.time}</div>
                                 </div>
                             </Link>

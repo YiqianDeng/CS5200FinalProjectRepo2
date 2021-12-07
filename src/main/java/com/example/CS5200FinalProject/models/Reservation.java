@@ -12,7 +12,7 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @ManyToOne
     @JsonIgnore
@@ -52,12 +52,22 @@ public class Reservation {
         this.vet = vet;
     }
 
+    @Transient
+    public Integer getVetId() {
+        return vet.getId();
+    }
+
     public Pet getPet() {
         return pet;
     }
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    @Transient
+    public Integer getPetId() {
+        return pet.getId();
     }
 
     public Timestamp getTime() {

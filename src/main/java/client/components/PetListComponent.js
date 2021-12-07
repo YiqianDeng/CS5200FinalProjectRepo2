@@ -28,6 +28,7 @@ const PetListComponent = () => {
                         <div className="col-sm-2">ID</div>
                         <div className="col-sm-2">Age</div>
                         <div className="col-sm-2">Species</div>
+                        <div className={"col-sm-2"}>PetOwner</div>
                     </div>
                 </li>
             {
@@ -40,7 +41,7 @@ const PetListComponent = () => {
                                 <div className="col-sm-2">{pet.id}</div>
                                 <div className="col-sm-2">{pet.age}</div>
                                 <div className="col-sm-2">{pet.species}</div>
-                                {/*<div className="col-sm-2">{pet.petOwner.id}</div>*/}
+                                <div className="col-sm-2">{pet.petOwnerId}</div>
                             </div>
                         </Link>
                     </li>)

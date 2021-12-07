@@ -39,8 +39,8 @@ const HistoryListComponent = () => {
                             <Link to={`/histories/${history.id}`}>
                                 <div className="form-group row">
                                     <div className="col-sm-1">{history.id}</div>
-                                    <div className="col-sm-2">{history.vet}</div>
-                                    <div className="col-sm-2">{history.pet}</div>
+                                    <div className="col-sm-2">{history.vetId}</div>
+                                    <div className="col-sm-2">{history.petId}</div>
                                     <div className="col-sm-6">{history.time}</div>
                                 </div>
                             </Link>
