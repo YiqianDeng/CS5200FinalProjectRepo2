@@ -7,12 +7,12 @@ import java.util.List;
 
 @Entity
 @Table(name="pet_owner")
-@PrimaryKeyJoinColumn(name = "id")
+//@PrimaryKeyJoinColumn(name = "id")
 public class PetOwner extends People{
     private int numberOfVisit;
 
     @OneToMany(mappedBy = "petOwner")
-    @JsonIgnore
+//    @JsonIgnore
     private List<Pet> pets;
 
     public int getNumberOfVisit() {
@@ -30,6 +30,12 @@ public class PetOwner extends People{
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
+
+//    @Transient
+    // how to get pets ids for list of pets?
+//    public List<Integer> getPetsId() {
+//        return
+//    }
 
     public PetOwner() {
     }
