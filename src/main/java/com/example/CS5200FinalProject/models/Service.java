@@ -7,10 +7,13 @@ import java.util.List;
 @Entity
 @Table(name="service")
 public class Service {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private ServiceName name;
+//    private ServiceName name;
+
+    private String name;
     private double cost;
 
     @OneToMany(mappedBy = "service")
@@ -29,11 +32,19 @@ public class Service {
         this.id = id;
     }
 
-    public ServiceName getName() {
+//    public ServiceName getName() {
+//        return name;
+//    }
+//
+//    public void setName(ServiceName name) {
+//        this.name = name;
+//    }
+
+    public String getName() {
         return name;
     }
 
-    public void setName(ServiceName name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -64,7 +75,7 @@ public class Service {
     public Service() {
     }
 
-    public Service(ServiceName name, double cost) {
+    public Service(String name, double cost) {
         this.name = name;
         this.cost = cost;
     }

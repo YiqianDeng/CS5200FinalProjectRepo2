@@ -2,9 +2,10 @@ package com.example.CS5200FinalProject.models;
 import javax.persistence.*;
 import java.sql.Date;
 
-@Entity
-@Table
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Entity
+//@Table
+//@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
 public class People {
 
     @Id
@@ -91,7 +92,7 @@ public class People {
         this.lastName = last_name;
         this.email = email;
         this.phone = phone;
-        this.dateOfBirth = date_of_birth;
+//        this.dateOfBirth = date_of_birth;
         this.username = username;
         this.password = password;
     }
