@@ -6,6 +6,8 @@ import HistoryListComponent from "./components/HistoryListComponent";
 import HistoryEditorComponent from "./components/HistoryEditorComponent";
 import ServiceListComponent from "./components/ServiceListComponent";
 import ServiceEditorComponent from "./components/ServiceEditorComponent";
+import VetListComponent from "./components/VetListComponent";
+import VetEditorComponent from "./components/VetEditorComponent";
 const {HashRouter, Route} = window.ReactRouterDOM;
 const App = () => {
     console.log(window.ReactRouterDOM)
@@ -24,6 +26,9 @@ const App = () => {
                 <Route path={["/services"]} exact={true}>
                     <ServiceListComponent/>
                 </Route>
+                <Route path={["/vets"]} exact={true}>
+                    <VetListComponent/>
+                </Route>
                 <Route path="/pets/:id" exact={true}>
                     <PetEditorComponent/>
                 </Route>
@@ -35,6 +40,9 @@ const App = () => {
                 </Route>
                 <Route path="/services/:id" exact={true}>
                     <ServiceEditorComponent/>
+                </Route>
+                <Route path="/vets/:id" exact={true}>
+                    <VetEditorComponent/>
                 </Route>
             </HashRouter>
         </div>
