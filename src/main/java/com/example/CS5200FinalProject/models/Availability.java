@@ -58,6 +58,10 @@ public class Availability {
         this.vet = vet;
     }
 
+    public Integer getVetId(){
+        return vet.getId();
+    }
+
     public Availability() {
     }
 
