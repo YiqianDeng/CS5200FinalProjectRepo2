@@ -8,12 +8,43 @@ import ServiceListComponent from "./components/ServiceListComponent";
 import ServiceEditorComponent from "./components/ServiceEditorComponent";
 import VetListComponent from "./components/VetListComponent";
 import VetEditorComponent from "./components/VetEditorComponent";
-const {HashRouter, Route} = window.ReactRouterDOM;
+const {HashRouter, Route, Link} = window.ReactRouterDOM;
 const App = () => {
-    console.log(window.ReactRouterDOM)
+    // console.log(window.ReactRouterDOM)
     return (
+
         <div className="container-fluid">
             <HashRouter>
+                <div>
+                    <h1>Vet Appointment Management System</h1>
+                    <div>
+                        <Link to="/vets">
+                            Vet
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/pets">
+                            Pet
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/reservations">
+                            Reservation
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/histories">
+                            History
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/services">
+                            Service
+                        </Link>
+                    </div>
+                </div>
+
+
                 <Route path={["/pets"]} exact={true}>
                     <PetListComponent/>
                 </Route>
