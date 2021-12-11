@@ -14,20 +14,26 @@
 <script src="https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"></script>
 
 <script src="services/PetService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="services/PetOwnerService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="services/ReservationService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="services/HistoryService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="services/ServiceService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="services/AvailabilityService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="services/ReserveServiceService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="services/HistoryServiceService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="services/VetService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/PetEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="components/PetOwnerEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/ReservationEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/HistoryEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="components/ServiceEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="components/AvailabilityEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/PetListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="components/PetOwnerListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/ReservationListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/HistoryListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
-<script src="components/ServiceEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/ServiceListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="components/AvailabilityListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/ReserveServiceEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/ReserveServiceListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/HistoryServiceEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
@@ -37,7 +43,7 @@
 
 <script src="index.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script type="text/jsx" data-type="module" data-plugins="transform-modules-umd">
-    import App from "index";
+    import App from "src/main/webapp/client/index";
     ReactDOM.render(
         React.createElement(App),
         document.getElementById('root')
