@@ -9,9 +9,6 @@ import java.util.List;
 
 public interface HistoryRepository extends CrudRepository<History, Integer> {
 
-    @Query("SELECT history FROM History history")
-    public List<History> findAllHistories();
-
     @Query("SELECT history FROM History history WHERE history.id=:id")
     public History findHistoriesById(@Param("id") Integer id);
 }
