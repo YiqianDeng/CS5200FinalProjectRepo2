@@ -1,13 +1,15 @@
 import petService from "../services/PetService"
+import petOwnerService from "../services/PetOwnerService"
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
 const PetEditorComponent = () => {
     const {id} = useParams()
-    const [pet, setPet] = useState({})
+    const [pet, setPet, petOwner, setPetOwner] = useState({})
     useEffect(() => {
         if(id !== "new") {
             findPetById(id)
+            findPetOwnerForPet(pet.petOwnerId)
         }
     }, []);
 
@@ -27,11 +29,17 @@ const PetEditorComponent = () => {
         petService.updatePet(id, newPet)
             .then(() => history.back())
 
+    const findPetOwnerForPet = (petOwnerId) =>
+        petOwnerService.findPetOwnerById(petOwnerId)
+            .then(petOwner => setPetOwner(petOwner))
+
     return (
-        <div>
+        <div className="form-group row">
+            <div className="col-sm-6">
             <h2>Pet Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={pet.id}/>
             <label>Age</label>
             <input className="form-control"
@@ -47,6 +55,9 @@ const PetEditorComponent = () => {
                    value={pet.species}/>
             <label>Pet Owner ID</label>
             <input className="form-control"
+                   onChange={(e) =>
+                       setPet(pet =>
+                           ({...pet, petOwnerId: e.target.value}))}
                    value={pet.petOwnerId}/>
             <br/>
             <button className="btn btn-warning"
@@ -65,6 +76,14 @@ const PetEditorComponent = () => {
                     onClick={() => updatePet(pet.id, pet)}>
                     Save
             </button>
+            </div>
+            <div className="col-sm-6">
+                <h2>Owner Information</h2>
+                <label>Pet Owner ID</label>
+                <input className="form-control"
+                       readOnly
+                       value={petOwner.id}/>
+            </div>
         </div>
     )
 }
