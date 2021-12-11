@@ -29,7 +29,7 @@ const AvailabilityListComponent = () => {
                         <div className="col-sm-2">Vet</div>
                         <div className="col-sm-2">Date</div>
                         <div className="col-sm-2">Available</div>
-                        <div className="col-sm-6">TimeSlot</div>
+                        <div className="col-sm-2">TimeSlot</div>
                     </div>
                 </li>
                 {
@@ -42,7 +42,7 @@ const AvailabilityListComponent = () => {
                                     <div className="col-sm-2">{availability.vetId}</div>
                                     <div className="col-sm-2">{availability.date}</div>
                                     <div className="col-sm-2">{availability.available}</div>
-                                    <div className="col-sm-6">{availability.timeSlot}</div>
+                                    <div className="col-sm-2">{availability.timeSlot}</div>
                                 </div>
                             </Link>
                         </li>)

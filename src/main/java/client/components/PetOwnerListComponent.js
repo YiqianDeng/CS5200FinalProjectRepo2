@@ -26,9 +26,7 @@ const PetOwnerListComponent = () => {
                 <li className="list-group-item">
                     <div className="form-group row">
                         <div className="col-sm-2">ID</div>
-                        <div className="col-sm-2">Age</div>
-                        <div className="col-sm-2">Species</div>
-                        <div className={"col-sm-2"}>PetOwnerOwner</div>
+                        <div className="col-sm-2">Number Of Visits</div>
                     </div>
                 </li>
                 {
@@ -39,9 +37,7 @@ const PetOwnerListComponent = () => {
                             <Link to={`/petOwners/${petOwner.id}`}>
                                 <div className="form-group row">
                                     <div className="col-sm-2">{petOwner.id}</div>
-                                    <div className="col-sm-2">{petOwner.age}</div>
-                                    <div className="col-sm-2">{petOwner.species}</div>
-                                    <div className="col-sm-2">{petOwner.petOwnerOwnerId}</div>
+                                    <div className="col-sm-2">{petOwner.numberOfVisit}</div>
                                 </div>
                             </Link>
                         </li>)

@@ -33,19 +33,15 @@ const PetOwnerEditorComponent = () => {
             <label>ID</label>
             <input className="form-control"
                    value={petOwner.id}/>
-            <label>Age</label>
+
+            <label>Number of visits</label>
             <input className="form-control"
                    onChange={(e) =>
                        setPetOwner(petOwner =>
-                           ({...petOwner, age: e.target.value}))}
-                   value={petOwner.age}/>
-            <label>Species</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                       setPetOwner(petOwner =>
-                           ({...petOwner, species: e.target.value}))}
-                   value={petOwner.species}/>
+                           ({...petOwner, numberOfVisit: e.target.value}))}
+                   value={petOwner.numberOfVisit}/>
             <br/>
+
             <button className="btn btn-warning"
                     onClick={() => history.back()}>
                 Cancel

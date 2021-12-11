@@ -8,6 +8,8 @@ import ServiceListComponent from "./components/ServiceListComponent";
 import ServiceEditorComponent from "./components/ServiceEditorComponent";
 import AvailabilityListComponent from "./components/AvailabilityListComponent";
 import AvailabilityEditorComponent from "./components/AvailabilityEditorComponent";
+import PetOwnerListComponent from "./components/PetOwnerListComponent";
+import PetOwnerEditorComponent from "./components/PetOwnerEditorComponent";
 
 const {HashRouter, Route} = window.ReactRouterDOM;
 const App = () => {
@@ -17,6 +19,9 @@ const App = () => {
             <HashRouter>
                 <Route path={["/pets"]} exact={true}>
                     <PetListComponent/>
+                </Route>
+                <Route path={["/petOwners"]} exact={true}>
+                    <PetOwnerListComponent/>
                 </Route>
                 <Route path={["/reservations"]} exact={true}>
                     <ReservationListComponent/>
@@ -32,6 +37,9 @@ const App = () => {
                 </Route>
                 <Route path="/pets/:id" exact={true}>
                     <PetEditorComponent/>
+                </Route>
+                <Route path="/petOwners/:id" exact={true}>
+                    <PetOwnerEditorComponent/>
                 </Route>
                 <Route path="/reservations/:id" exact={true}>
                     <ReservationEditorComponent/>

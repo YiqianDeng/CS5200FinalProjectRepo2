@@ -33,8 +33,7 @@ public class AvailabilityDao {
         availability.setAvailable(availabilityUpdates.isAvailable());
         availability.setDate(availabilityUpdates.getDate());
         availability.setTimeSlot(availabilityUpdates.getTimeSlot());
-        availability.setVet(availability.getVet());
-
+        availability.setVet(availabilityUpdates.getVet());
         return availabilityRepository.save(availability);
     }
 

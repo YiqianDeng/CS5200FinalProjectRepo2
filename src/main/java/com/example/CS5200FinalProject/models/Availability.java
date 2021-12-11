@@ -58,7 +58,7 @@ public class Availability {
         this.vet = vet;
     }
 
-    public Integer getVetId(){
+    public int getVetId(){
         return vet.getId();
     }
 
