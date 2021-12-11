@@ -41,7 +41,7 @@ const AvailabilityListComponent = () => {
                                     <div className="col-sm-1">{availability.id}</div>
                                     <div className="col-sm-2">{availability.vetId}</div>
                                     <div className="col-sm-2">{availability.date}</div>
-                                    <div className="col-sm-2">{availability.available}</div>
+                                    <div className="col-sm-2">{String(availability.available)}</div>
                                     <div className="col-sm-2">{availability.timeSlot}</div>
                                 </div>
                             </Link>
