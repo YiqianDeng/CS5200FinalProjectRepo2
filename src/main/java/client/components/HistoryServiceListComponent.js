@@ -33,19 +33,21 @@ const HistoryServiceListComponent = () => {
                 {
                     historyServices.map(historyService =>
 
-                                            <li className="list-group-item"
-                                                key={historyService.id}>
-                                                <Link to={`/historyServices/${historyService.id}`}>
-                                                    <div className="form-group row">
-                                                        <div className="col-sm-2">{historyService.id}</div>
-                                                        <div className="col-sm-2">{historyService.serviceId}</div>
-                                                        <div className="col-sm-2">{historyService.historyId}</div>
-                                                    </div>
-                                                </Link>
-                                            </li>)
+                        <li className="list-group-item"
+                            key={historyService.id}>
+                            <Link to={`/historyServices/${historyService.id}`}>
+                                <div className="form-group row">
+                                    <div className="col-sm-2">{historyService.id}</div>
+                                    <div className="col-sm-2">{historyService.serviceId}</div>
+                                    <div className="col-sm-2">{historyService.historyId}</div>
+                                </div>
+                            </Link>
+                        </li>)
                 }
             </ul>
         </div>
     )
 
 }
+
+export default HistoryServiceListComponent

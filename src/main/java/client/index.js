@@ -10,41 +10,44 @@ import ReserveServiceListComponent from "./components/ReserveServiceListComponen
 import ReserveServiceEditorComponent from "./components/ReserveServiceEditorComponent";
 import VetListComponent from "./components/VetListComponent";
 import VetEditorComponent from "./components/VetEditorComponent";
+import HistoryServiceListComponent from "./components/HistoryServiceListComponent";
+import HistoryServiceEditorComponent from "./components/HistoryServiceEditorComponent";
 const {HashRouter, Route, Link} = window.ReactRouterDOM;
 const App = () => {
     // console.log(window.ReactRouterDOM)
     return (
 
-        <div className="container-fluid">
+        <div className="container">
             <HashRouter>
-                <div>
-                    <h1>Vet Appointment Management System</h1>
-                    <div>
+                <h1>Vet Appointment Management System</h1>
+                <div className="form-group row">
+                    <div className="col-sm-1">
                         <Link to="/vets">
                             Vet
                         </Link>
                     </div>
-                    <div>
+                    <div className="col-sm-1">
                         <Link to="/pets">
                             Pet
                         </Link>
                     </div>
-                    <div>
+                    <div className="col-sm-1">
                         <Link to="/reservations">
                             Reservation
                         </Link>
                     </div>
-                    <div>
+                    <div className="col-sm-1">
                         <Link to="/histories">
                             History
                         </Link>
                     </div>
-                    <div>
+                    <div className="col-sm-1">
                         <Link to="/services">
                             Service
                         </Link>
                     </div>
                 </div>
+                <br/>
 
 
                 <Route path={["/pets"]} exact={true}>
@@ -68,6 +71,9 @@ const App = () => {
                 <Route path={["/reserve_services"]} exact={true}>
                     <ReserveServiceListComponent/>
                 </Route>
+                <Route path={["/history_services"]} exact={true}>
+                    <HistoryServiceListComponent/>
+                </Route>
                 <Route path="/reservations/:id" exact={true}>
                     <ReservationEditorComponent/>
                 </Route>
@@ -79,6 +85,9 @@ const App = () => {
                 </Route>
                 <Route path="/reserve_services/:id" exact={true}>
                     <ReserveServiceEditorComponent/>
+                </Route>
+                <Route path="/history_services/:id" exact={true}>
+                    <HistoryServiceEditorComponent/>
                 </Route>
                 <Route path="/vets/:id" exact={true}>
                     <VetEditorComponent/>
