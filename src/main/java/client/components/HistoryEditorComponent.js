@@ -38,13 +38,13 @@ const HistoryEditorComponent = () => {
                    onChange={(e) =>
                        setHistory(thisHistory =>
                            ({...thisHistory, vet: e.target.value}))}
-                   value={thisHistory.vet}/>
+                   value={thisHistory.vetId}/>
             <label>Pet</label>
             <input className="form-control"
                    onChange={(e) =>
                        setHistory(thisHistory =>
                            ({...thisHistory, pet: e.target.value}))}
-                   value={thisHistory.pet}/>
+                   value={thisHistory.petId}/>
             <label>Time</label>
             <input className="form-control"
                    onChange={(e) =>

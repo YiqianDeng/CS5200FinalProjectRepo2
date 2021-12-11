@@ -45,6 +45,9 @@ const PetEditorComponent = () => {
                        setPet(pet =>
                            ({...pet, species: e.target.value}))}
                    value={pet.species}/>
+            <label>Pet Owner ID</label>
+            <input className="form-control"
+                   value={pet.petOwnerId}/>
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>

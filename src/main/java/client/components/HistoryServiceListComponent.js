@@ -17,9 +17,9 @@ const HistoryServiceListComponent = () => {
 
     return(
         <div className="container">
-            <h2>HistoryServices List</h2>
+            <h2>History Service List</h2>
             <button className="btn btn-primary"
-                    onClick={() => history.push("/historyServices/new")}>
+                    onClick={() => history.push("/history_services/new")}>
                 Add History Service
             </button>
             <ul className="list-group">
@@ -35,7 +35,7 @@ const HistoryServiceListComponent = () => {
 
                         <li className="list-group-item"
                             key={historyService.id}>
-                            <Link to={`/historyServices/${historyService.id}`}>
+                            <Link to={`/history_services/${historyService.id}`}>
                                 <div className="form-group row">
                                     <div className="col-sm-2">{historyService.id}</div>
                                     <div className="col-sm-2">{historyService.serviceId}</div>

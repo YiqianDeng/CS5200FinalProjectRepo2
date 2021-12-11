@@ -38,13 +38,13 @@ const ReservationEditorComponent = () => {
                    onChange={(e) =>
                        setReservation(reservation =>
                            ({...reservation, vet: e.target.value}))}
-                   value={reservation.vet}/>
+                   value={reservation.vetId}/>
             <label>Pet</label>
             <input className="form-control"
                    onChange={(e) =>
                        setReservation(reservation =>
                            ({...reservation, pet: e.target.value}))}
-                   value={reservation.pet}/>
+                   value={reservation.petId}/>
             <label>Time</label>
             <input className="form-control"
                    onChange={(e) =>

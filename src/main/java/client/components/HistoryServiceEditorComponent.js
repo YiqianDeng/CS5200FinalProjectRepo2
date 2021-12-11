@@ -39,13 +39,13 @@ const HistoryServiceEditorComponent = () => {
                    onChange={(e) =>
                        setHistoryService(historyService =>
                                              ({...historyService, history: e.target.value}))}
-                   value={historyService.history}/>
+                   value={historyService.historyId}/>
             <label>Service</label>
             <input className="form-control"
                    onChange={(e) =>
                        setHistoryService(historyService =>
                                              ({...historyService, service: e.target.value}))}
-                   value={historyService.service}/>
+                   value={historyService.serviceId}/>
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>
