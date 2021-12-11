@@ -1,4 +1,4 @@
-import historyService from "../services/HistoryServiceService"
+import historyServiceService from "../services/HistoryServiceService"
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
