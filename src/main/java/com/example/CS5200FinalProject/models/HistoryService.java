@@ -30,12 +30,22 @@ public class HistoryService {
         return service;
     }
 
+    @Transient
+    public Integer getServiceId() {
+        return service.getId();
+    }
+
     public void setService(Service service) {
         this.service = service;
     }
 
     public History getHistory() {
         return history;
+    }
+
+    @Transient
+    public Integer getHistoryId() {
+        return history.getId();
     }
 
     public void setHistory(History history) {
