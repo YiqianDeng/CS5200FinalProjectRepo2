@@ -1,4 +1,4 @@
-import reserveServiceService from "../services/ReserveServiceServiceService";
+import reserveServiceService from "../services/ReserveServiceService";
 
 const {Link, useHistory} = window.ReactRouterDOM;
 const { useState, useEffect } = React;
@@ -39,8 +39,8 @@ const ReserveServiceListComponent = () => {
                                      <Link to={`/reserveServices/${reserveService.id}`}>
                                          <div className="form-group row">
                                              <div className="col-sm-2">{reserveService.id}</div>
-                                             <div className="col-sm-2">{reserveService.service}</div>
-                                             <div className="col-sm-2">{reserveService.reservation}</div>
+                                             <div className="col-sm-2">{reserveService.serviceId}</div>
+                                             <div className="col-sm-2">{reserveService.reservationId}</div>
                                          </div>
                                      </Link>
                                  </li>)
