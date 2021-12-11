@@ -22,10 +22,10 @@ public class PetOwnerDao {
         return petOwnerRepository.findAllPetOwners();
     }
 
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello World";
-    }
+//    @GetMapping("/hello")
+//    public String sayHello() {
+//        return "Hello World";
+//    }
 
     @GetMapping("/api/petOwners/{petOwnerId}")
     public PetOwner findPetOwnerById(
@@ -42,15 +42,16 @@ public class PetOwnerDao {
         petOwner.setLastName(petOwnerUpdates.getLastName());
         petOwner.setEmail(petOwnerUpdates.getEmail());
         petOwner.setPhone(petOwnerUpdates.getPhone());
-//        petOwner.setDateOfBirth(petOwnerUpdates.getDateOfBirth());
+        petOwner.setDateOfBirth(petOwnerUpdates.getDateOfBirth());
         petOwner.setUsername(petOwnerUpdates.getUsername());
         petOwner.setPassword(petOwnerUpdates.getPassword());
         petOwner.setNumberOfVisit(petOwnerUpdates.getNumberOfVisit());
+        petOwner.setPets(petOwnerUpdates.getPets());
         return petOwnerRepository.save(petOwner);
     }
 
     @DeleteMapping("/api/petOwners/{petOwnerId}")
-    public void deleteUser(
+    public void deletePetOwner(
             @PathVariable("petOwnerId") Integer id) {
         petOwnerRepository.deleteById(id);
     }

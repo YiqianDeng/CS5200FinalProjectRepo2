@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name="vet")
-@PrimaryKeyJoinColumn(name = "id")
+//@PrimaryKeyJoinColumn(name = "id")
 public class Vet extends People {
 
     private String specialty;

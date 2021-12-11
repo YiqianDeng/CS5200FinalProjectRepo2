@@ -19,6 +19,7 @@
 <script src="services/HistoryService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="services/ServiceService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="services/AvailabilityService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="services/VetService.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/PetEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/PetOwnerEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/ReservationEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
@@ -31,10 +32,12 @@
 <script src="components/HistoryListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/ServiceListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script src="components/AvailabilityListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="components/VetEditorComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
+<script src="components/VetListComponent.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 
 <script src="index.js" type="text/jsx" data-type="module" data-plugins="transform-modules-umd"></script>
 <script type="text/jsx" data-type="module" data-plugins="transform-modules-umd">
-    import App from "index";
+    import App from "src/main/webapp/client/index";
     ReactDOM.render(
         React.createElement(App),
         document.getElementById('root')
