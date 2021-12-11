@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
+@Table(name="reserve_service")
 public class ReserveService {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,12 +31,22 @@ public class ReserveService {
         return service;
     }
 
+    @Transient
+    public Integer getServiceId() {
+        return service.getId();
+    }
+
     public void setService(Service service) {
         this.service = service;
     }
 
     public Reservation getReservation() {
         return reservation;
+    }
+
+    @Transient
+    public Integer getReservationId() {
+        return reservation.getId();
     }
 
     public void setReservation(Reservation reservation) {

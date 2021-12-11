@@ -10,14 +10,18 @@ import AvailabilityListComponent from "./components/AvailabilityListComponent";
 import AvailabilityEditorComponent from "./components/AvailabilityEditorComponent";
 import PetOwnerListComponent from "./components/PetOwnerListComponent";
 import PetOwnerEditorComponent from "./components/PetOwnerEditorComponent";
+import ReserveServiceListComponent from "./components/ReserveServiceListComponent";
+import ReserveServiceEditorComponent from "./components/ReserveServiceEditorComponent";
 import VetListComponent from "./components/VetListComponent";
 import VetEditorComponent from "./components/VetEditorComponent";
+import HistoryServiceListComponent from "./components/HistoryServiceListComponent";
+import HistoryServiceEditorComponent from "./components/HistoryServiceEditorComponent";
 const {HashRouter, Route, Link} = window.ReactRouterDOM;
 const App = () => {
     // console.log(window.ReactRouterDOM)
     return (
 
-        <div className="container-fluid">
+        <div className="container">
             <HashRouter>
                 <h1>Vet Appointment Management System</h1>
                 <div className="form-group row">
@@ -37,6 +41,11 @@ const App = () => {
                         </Link>
                     </div>
                     <div className="col-sm-1">
+                        <Link to="/petOwners">
+                            PetOwner
+                        </Link>
+                    </div>
+                    <div className="col-sm-1">
                         <Link to="/reservations">
                             Reservation
                         </Link>
@@ -49,6 +58,16 @@ const App = () => {
                     <div className="col-sm-1">
                         <Link to="/services">
                             Service
+                        </Link>
+                    </div>
+                    <div className="col-sm-1">
+                        <Link to="/reserve_services">
+                            Reserved Service
+                        </Link>
+                    </div>
+                    <div className="col-sm-1">
+                        <Link to="/history_services">
+                            History Service
                         </Link>
                     </div>
                 </div>
@@ -91,6 +110,13 @@ const App = () => {
                     <PetOwnerEditorComponent/>
                 </Route>
 
+                <Route path={["/reserve_services"]} exact={true}>
+                    <ReserveServiceListComponent/>
+                </Route>
+                <Route path={["/history_services"]} exact={true}>
+                    <HistoryServiceListComponent/>
+                </Route>
+
                 <Route path="/reservations/:id" exact={true}>
                     <ReservationEditorComponent/>
                 </Route>
@@ -105,6 +131,14 @@ const App = () => {
 
                 <Route path="/availabilities/:id" exact={true}>
                     <AvailabilityEditorComponent/>
+                </Route>
+
+                <Route path="/reserve_services/:id" exact={true}>
+                    <ReserveServiceEditorComponent/>
+                </Route>
+
+                <Route path="/history_services/:id" exact={true}>
+                    <HistoryServiceEditorComponent/>
                 </Route>
 
                 <Route path="/vets/:id" exact={true}>

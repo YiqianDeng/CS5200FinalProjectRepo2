@@ -11,7 +11,6 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-//    private ServiceName name;
 
     private String name;
     private double cost;
@@ -31,14 +30,6 @@ public class Service {
     public void setId(int id) {
         this.id = id;
     }
-
-//    public ServiceName getName() {
-//        return name;
-//    }
-//
-//    public void setName(ServiceName name) {
-//        this.name = name;
-//    }
 
     public String getName() {
         return name;
