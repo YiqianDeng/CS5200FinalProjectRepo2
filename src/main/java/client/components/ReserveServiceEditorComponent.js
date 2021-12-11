@@ -1,4 +1,4 @@
-import reserveService from "../services/ReserveServiceService"
+import reserveServiceService from "../services/ReserveServiceService"
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
@@ -39,13 +39,13 @@ const ReserveServiceEditorComponent = () => {
                    onChange={(e) =>
                        setReserveService(reserveService =>
                                   ({...reserveService, reservation: e.target.value}))}
-                   value={reserveService.reservation}/>
+                   value={reserveService.reservationId}/>
             <label>Service</label>
             <input className="form-control"
                    onChange={(e) =>
                        setReserveService(reserveService =>
                                   ({...reserveService, service: e.target.value}))}
-                   value={reserveService.service}/>
+                   value={reserveService.serviceId}/>
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>

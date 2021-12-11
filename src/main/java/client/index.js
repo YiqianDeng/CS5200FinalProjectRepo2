@@ -46,6 +46,16 @@ const App = () => {
                             Service
                         </Link>
                     </div>
+                    <div className="col-sm-1">
+                        <Link to="/reserve_services">
+                            Reserved Service
+                        </Link>
+                    </div>
+                    <div className="col-sm-1">
+                        <Link to="/history_services">
+                            History Service
+                        </Link>
+                    </div>
                 </div>
                 <br/>
 

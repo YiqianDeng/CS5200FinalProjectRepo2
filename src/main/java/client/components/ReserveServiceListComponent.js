@@ -18,9 +18,9 @@ const ReserveServiceListComponent = () => {
 
     return(
         <div className="container">
-            <h2>ReserveServices List</h2>
+            <h2>Reserve Service List</h2>
             <button className="btn btn-primary"
-                    onClick={() => history.push("/reserveServices/new")}>
+                    onClick={() => history.push("/reserve_services/new")}>
                 Add Reserve Service
             </button>
             <ul className="list-group">
@@ -34,16 +34,16 @@ const ReserveServiceListComponent = () => {
                 {
                     reserveServices.map(reserveService =>
 
-                                 <li className="list-group-item"
-                                     key={reserveService.id}>
-                                     <Link to={`/reserveServices/${reserveService.id}`}>
-                                         <div className="form-group row">
-                                             <div className="col-sm-2">{reserveService.id}</div>
-                                             <div className="col-sm-2">{reserveService.serviceId}</div>
-                                             <div className="col-sm-2">{reserveService.reservationId}</div>
-                                         </div>
-                                     </Link>
-                                 </li>)
+                         <li className="list-group-item"
+                             key={reserveService.id}>
+                             <Link to={`/reserve_services/${reserveService.id}`}>
+                                 <div className="form-group row">
+                                     <div className="col-sm-2">{reserveService.id}</div>
+                                     <div className="col-sm-2">{reserveService.serviceId}</div>
+                                     <div className="col-sm-2">{reserveService.reservationId}</div>
+                                 </div>
+                             </Link>
+                         </li>)
                 }
             </ul>
         </div>
