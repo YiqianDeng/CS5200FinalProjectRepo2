@@ -50,14 +50,6 @@ public class Pet {
         this.petOwner = petOwner;
     }
 
-//    public String getPetOwner() {
-//        return petOwner;
-//    }
-//
-//    public void setPetOwner(String petOwner) {
-//        this.petOwner = petOwner;
-//    }
-
     public String getSpecies() {
         return species;
     }
@@ -90,12 +82,12 @@ public class Pet {
         this.histories = histories;
     }
 
-    public Pet() {
-    }
-
-    public Pet(PetOwner petOwner, String species, int age) {
-        this.petOwner = petOwner;
-        this.species = species;
-        this.age = age;
-    }
+//    public Pet() {
+//    }
+//
+//    public Pet(PetOwner petOwner, String species, int age) {
+//        this.petOwner = petOwner;
+//        this.species = species;
+//        this.age = age;
+//    }
 }

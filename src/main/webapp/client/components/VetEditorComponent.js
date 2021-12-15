@@ -1,6 +1,6 @@
 import vetService, {findVetById} from "../services/VetService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const VetEditorComponent = () => {
     const {id} = useParams()
@@ -62,6 +62,10 @@ const VetEditorComponent = () => {
                     onClick={() => updateVet(vet.id, vet)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/vets/${vet.id}/availabilities`}>
+                <h2>Availabilities</h2>
+            </Link>
         </div>
     )
 }

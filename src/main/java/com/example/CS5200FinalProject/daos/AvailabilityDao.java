@@ -1,7 +1,11 @@
 package com.example.CS5200FinalProject.daos;
 
 import com.example.CS5200FinalProject.models.Availability;
+import com.example.CS5200FinalProject.models.Pet;
+import com.example.CS5200FinalProject.models.PetOwner;
+import com.example.CS5200FinalProject.models.Vet;
 import com.example.CS5200FinalProject.repositories.AvailabilityRepository;
+import com.example.CS5200FinalProject.repositories.VetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +17,9 @@ public class AvailabilityDao {
     @Autowired
     AvailabilityRepository availabilityRepository;
 
+    @Autowired
+    VetRepository vetRepository;
+
     @PostMapping("/api/availabilities")
     public Availability createAvailability(@RequestBody Availability availability) { return availabilityRepository.save(availability); }
 
@@ -23,6 +30,13 @@ public class AvailabilityDao {
     public Availability findAvailabilityById(
             @PathVariable("availabilityId") Integer id) {
         return availabilityRepository.findAvailabilityById(id);
+    }
+
+    @GetMapping("/api/vets/{vetId}/availabilities")
+    public List<Availability> findAvailabilitiesForVet(
+            @PathVariable("vetId") Integer vetId) {
+        Vet vet = vetRepository.findById(vetId).get();
+        return vet.getAvailabilities();
     }
 
     @PutMapping("/api/availabilities/{availabilityId}")

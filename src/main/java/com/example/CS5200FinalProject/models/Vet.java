@@ -14,15 +14,15 @@ public class Vet extends People {
     private int tenure;
 
     @OneToMany(mappedBy = "vet")
-    @JsonIgnore
+//    @JsonIgnore
     private List<Availability> availabilities;
 
     @OneToMany(mappedBy = "vet")
-    @JsonIgnore
+//    @JsonIgnore
     private List<History> histories;
 
     @OneToMany(mappedBy = "vet")
-    @JsonIgnore
+//    @JsonIgnore
     private List<Reservation> reservations;
 
     public String getSpecialty() {

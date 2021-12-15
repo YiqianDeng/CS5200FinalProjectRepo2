@@ -1,6 +1,6 @@
 import petOwnerService from "../services/PetOwnerService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const PetOwnerEditorComponent = () => {
     const {id} = useParams()
@@ -58,31 +58,10 @@ const PetOwnerEditorComponent = () => {
                     onClick={() => updatePetOwner(petOwner.id, petOwner)}>
                 Save
             </button>
-
-            <h2>Pets List of This Owner</h2>
-
-            <ul className="list-group">
-                <li className="list-group-item">
-                    <div className="form-group row">
-                        <div className="col-sm-2">ID</div>
-                        <div className="col-sm-2">Age</div>
-                        <div className="col-sm-2">Species</div>
-                    </div>
-                </li>
-                {
-                    petOwner.pets.map(pet =>
-                        <li className="list-group-item"
-                            key={pet.id}>
-                            <Link to={`/pets/${pet.id}`}>
-                                <div className="form-group row">
-                                    <div className="col-sm-2">{pet.id}</div>
-                                    <div className="col-sm-2">{pet.age}</div>
-                                    <div className="col-sm-2">{pet.species}</div>
-                                </div>
-                            </Link>
-                        </li>)
-                }
-            </ul>
+            <br/>
+            <Link to={`/petOwners/${petOwner.id}/pets`}>
+                <h2>Pets</h2>
+            </Link>
         </div>
     )
 }

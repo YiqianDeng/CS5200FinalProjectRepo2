@@ -5,14 +5,16 @@ const {useParams, useHistory, Link} = window.ReactRouterDOM;
 const PetEditorComponent = () => {
     const {id} = useParams()
     const [pet, setPet] = useState({})
+    let petOwnerId;
+
     useEffect(() => {
         if(id !== "new") {
             findPetById(id)
         }
     }, []);
 
-    const createPet = (pet) =>
-        petService.createPet(pet)
+    const createPet = (petOwnerId, pet) =>
+        petService.createPet(petOwnerId, pet)
             .then(() => history.back())
 
     const findPetById = (id) =>
@@ -49,9 +51,9 @@ const PetEditorComponent = () => {
             <label>Pet Owner ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setPet(pet =>
-                           ({...pet, petOwnerId: e.target.value}))}
-                   value={pet.petOwnerId}/>
+                   {petOwnerId = e.target.value}}
+                   value={pet.petOwnerId}
+                   />
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>
@@ -62,7 +64,7 @@ const PetEditorComponent = () => {
                     Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createPet(pet)}>
+                    onClick={() => createPet(petOwnerId, pet)}>
                     Create
             </button>
             <button className="btn btn-primary"

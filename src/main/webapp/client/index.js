@@ -16,6 +16,9 @@ import VetListComponent from "./components/VetListComponent";
 import VetEditorComponent from "./components/VetEditorComponent";
 import HistoryServiceListComponent from "./components/HistoryServiceListComponent";
 import HistoryServiceEditorComponent from "./components/HistoryServiceEditorComponent";
+import PetsForPetOwnerComponent from "./components/PetsForPetOwnerComponent";
+import AvailabilitiesForVetComponent from "./components/AvailabilitiesForVetComponent";
+
 const {HashRouter, Route, Link} = window.ReactRouterDOM;
 const App = () => {
     // console.log(window.ReactRouterDOM)
@@ -143,6 +146,14 @@ const App = () => {
 
                 <Route path="/vets/:id" exact={true}>
                     <VetEditorComponent/>
+                </Route>
+
+                <Route path="/petOwners/:petOwnerId/pets" exact={true}>
+                    <PetsForPetOwnerComponent/>
+                </Route>
+
+                <Route path="/vets/:vetId/availabilities" exact={true}>
+                    <AvailabilitiesForVetComponent/>
                 </Route>
 
             </HashRouter>
