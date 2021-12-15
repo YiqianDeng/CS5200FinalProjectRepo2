@@ -52,12 +52,4 @@ public class ReserveService {
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
     }
-
-    public ReserveService() {
-    }
-
-    public ReserveService(Service service, Reservation reservation) {
-        this.reservation = reservation;
-        this.service = service;
-    }
 }

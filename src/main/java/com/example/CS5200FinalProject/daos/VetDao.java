@@ -44,9 +44,6 @@ public class VetDao {
         vet.setPassword(vetUpdates.getPassword());
         vet.setSpecialty(vetUpdates.getSpecialty());
         vet.setTenure(vetUpdates.getTenure());
-        vet.setAvailabilities(vetUpdates.getAvailabilities());
-        vet.setHistories(vetUpdates.getHistories());
-        vet.setReservations(vetUpdates.getReservations());
         return vetRepository.save(vet);
     }
 

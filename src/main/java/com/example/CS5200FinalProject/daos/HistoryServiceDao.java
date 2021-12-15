@@ -1,7 +1,11 @@
 package com.example.CS5200FinalProject.daos;
+import com.example.CS5200FinalProject.models.History;
 import com.example.CS5200FinalProject.models.HistoryService;
+import com.example.CS5200FinalProject.models.Service;
+import com.example.CS5200FinalProject.repositories.HistoryRepository;
 import com.example.CS5200FinalProject.repositories.HistoryServiceRepository;
 
+import com.example.CS5200FinalProject.repositories.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,9 +24,23 @@ public class HistoryServiceDao {
   @Autowired
   HistoryServiceRepository historyServiceRepository;
 
-  @PostMapping("/api/history_services")
-  public HistoryService createHistoryService(@RequestBody HistoryService historyService) {
-    return historyServiceRepository.save(historyService);
+  @Autowired
+  HistoryRepository historyRepository;
+
+  @Autowired
+  ServiceRepository serviceRepository;
+
+  @PostMapping("/api/histories/{historyId}/services/{serviceId}/history_services")
+  public HistoryService createHistoryService(
+          @PathVariable("historyId") Integer historyId,
+          @PathVariable("serviceId") Integer serviceId,
+          @RequestBody HistoryService historyService) {
+      historyService = historyServiceRepository.save(historyService);
+      History history = historyRepository.findHistoriesById(historyId);
+      Service service = serviceRepository.findServiceById(serviceId);
+      historyService.setHistory(history);
+      historyService.setService(service);
+      return historyServiceRepository.save(historyService);
   }
 
   @GetMapping("/api/history_services")
@@ -32,17 +50,6 @@ public class HistoryServiceDao {
   public HistoryService findHistoryServiceById(
           @PathVariable("history_servicesId") Integer id) {
     return historyServiceRepository.findHistoryServiceById(id);
-  }
-
-  @PutMapping("/api/history_services/{history_servicesId}")
-  public HistoryService updateHistoryService(
-          @PathVariable("history_servicesId") Integer id,
-          @RequestBody HistoryService historyServiceUpdates) {
-    HistoryService historyService = historyServiceRepository.findHistoryServiceById(id);
-    historyService.setId(historyServiceUpdates.getId());
-    historyService.setService(historyServiceUpdates.getService());
-    historyService.setHistory(historyServiceUpdates.getHistory());
-    return historyServiceRepository.save(historyService);
   }
 
   @DeleteMapping("/api/history_services/{history_servicesId}")

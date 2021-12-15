@@ -7,7 +7,6 @@ import java.util.List;
 
 @Entity
 @Table(name="pet_owner")
-//@PrimaryKeyJoinColumn(name = "id")
 public class PetOwner extends People{
     private int numberOfVisit;
 
@@ -30,18 +29,4 @@ public class PetOwner extends People{
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
-
-//    @Transient
-    // how to get pets ids for list of pets?
-//    public List<Integer> getPetsId() {
-//        return
-//    }
-
-//    public PetOwner() {
-//    }
-//
-//    public PetOwner(String first_name, String last_name, String email, String phone, Date date_of_birth, String username, String password, int number_of_visit) {
-//        super(first_name, last_name, email, phone, date_of_birth, username, password);
-//        this.numberOfVisit = number_of_visit;
-//    }
 }

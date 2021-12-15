@@ -7,22 +7,21 @@ import java.util.List;
 
 @Entity
 @Table(name="vet")
-//@PrimaryKeyJoinColumn(name = "id")
 public class Vet extends People {
 
     private String specialty;
     private int tenure;
 
     @OneToMany(mappedBy = "vet")
-//    @JsonIgnore
+    @JsonIgnore
     private List<Availability> availabilities;
 
     @OneToMany(mappedBy = "vet")
-//    @JsonIgnore
+    @JsonIgnore
     private List<History> histories;
 
     @OneToMany(mappedBy = "vet")
-//    @JsonIgnore
+    @JsonIgnore
     private List<Reservation> reservations;
 
     public String getSpecialty() {
@@ -63,14 +62,5 @@ public class Vet extends People {
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
-    }
-
-    public Vet() {
-    }
-
-    public Vet(String first_name, String last_name, String email, String phone, Date date_of_birth, String username, String password, String specialty, int tenure) {
-        super(first_name, last_name, email, phone, date_of_birth, username, password);
-        this.specialty = specialty;
-        this.tenure = tenure;
     }
 }

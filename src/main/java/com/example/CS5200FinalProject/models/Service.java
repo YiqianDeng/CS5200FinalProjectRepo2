@@ -62,12 +62,4 @@ public class Service {
     public void setHistoryServices(List<HistoryService> historyServices) {
         this.historyServices = historyServices;
     }
-
-    public Service() {
-    }
-
-    public Service(String name, double cost) {
-        this.name = name;
-        this.cost = cost;
-    }
 }
