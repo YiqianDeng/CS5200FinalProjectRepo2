@@ -12,7 +12,7 @@ public class PetOwner extends People{
     private int numberOfVisit;
 
     @OneToMany(mappedBy = "petOwner")
-//    @JsonIgnore
+    @JsonIgnore
     private List<Pet> pets;
 
     public int getNumberOfVisit() {
@@ -37,11 +37,11 @@ public class PetOwner extends People{
 //        return
 //    }
 
-    public PetOwner() {
-    }
-
-    public PetOwner(String first_name, String last_name, String email, String phone, Date date_of_birth, String username, String password, int number_of_visit) {
-        super(first_name, last_name, email, phone, date_of_birth, username, password);
-        this.numberOfVisit = number_of_visit;
-    }
+//    public PetOwner() {
+//    }
+//
+//    public PetOwner(String first_name, String last_name, String email, String phone, Date date_of_birth, String username, String password, int number_of_visit) {
+//        super(first_name, last_name, email, phone, date_of_birth, username, password);
+//        this.numberOfVisit = number_of_visit;
+//    }
 }

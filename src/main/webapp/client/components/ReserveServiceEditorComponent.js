@@ -38,13 +38,13 @@ const ReserveServiceEditorComponent = () => {
             <input className="form-control"
                    onChange={(e) =>
                        setReserveService(reserveService =>
-                                  ({...reserveService, reservation: e.target.value}))}
+                                  ({...reserveService, reservationId: e.target.value}))}
                    value={reserveService.reservationId}/>
             <label>Service</label>
             <input className="form-control"
                    onChange={(e) =>
                        setReserveService(reserveService =>
-                                  ({...reserveService, service: e.target.value}))}
+                                  ({...reserveService, serviceId: e.target.value}))}
                    value={reserveService.serviceId}/>
             <br/>
             <button className="btn btn-warning"

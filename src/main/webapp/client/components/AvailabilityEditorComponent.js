@@ -1,6 +1,6 @@
 import availabilityService from "../services/AvailabilityService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const AvailabilityEditorComponent = () => {
 
@@ -33,13 +33,14 @@ const AvailabilityEditorComponent = () => {
             <h2>Availability Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={availability.id}/>
             <label>Vet</label>
             <input className="form-control"
                    onChange={(e) =>
                        setAvailability(availability =>
-                           ({...availability, vet: e.target.value}))}
-                   value={availability.vet}/>
+                           ({...availability, vetId: e.target.value}))}
+                   value={availability.vetId}/>
             <label>Date</label>
             <input className="form-control"
                    onChange={(e) =>
@@ -77,6 +78,12 @@ const AvailabilityEditorComponent = () => {
                     onClick={() => updateAvailability(availability.id, availability)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/vets/${availability.vetId}`}>
+                <div className="form-group row">
+                    <h2>Vet Information</h2>
+                </div>
+            </Link>
         </div>
     )
 }

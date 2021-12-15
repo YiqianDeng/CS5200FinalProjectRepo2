@@ -1,6 +1,6 @@
 import petOwnerService from "../services/PetOwnerService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const PetOwnerEditorComponent = () => {
     const {id} = useParams()
@@ -58,6 +58,10 @@ const PetOwnerEditorComponent = () => {
                     onClick={() => updatePetOwner(petOwner.id, petOwner)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/petOwners/${petOwner.id}/pets`}>
+                <h2>Pets</h2>
+            </Link>
         </div>
     )
 }

@@ -1,20 +1,20 @@
 import petService from "../services/PetService"
-import petOwnerService from "../services/PetOwnerService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const PetEditorComponent = () => {
     const {id} = useParams()
-    const [pet, setPet, petOwner, setPetOwner] = useState({})
+    const [pet, setPet] = useState({})
+    let petOwnerId;
+
     useEffect(() => {
         if(id !== "new") {
             findPetById(id)
-            findPetOwnerForPet(pet.petOwnerId)
         }
     }, []);
 
-    const createPet = (pet) =>
-        petService.createPet(pet)
+    const createPet = (petOwnerId, pet) =>
+        petService.createPet(petOwnerId, pet)
             .then(() => history.back())
 
     const findPetById = (id) =>
@@ -29,13 +29,8 @@ const PetEditorComponent = () => {
         petService.updatePet(id, newPet)
             .then(() => history.back())
 
-    const findPetOwnerForPet = (petOwnerId) =>
-        petOwnerService.findPetOwnerById(petOwnerId)
-            .then(petOwner => setPetOwner(petOwner))
-
     return (
-        <div className="form-group row">
-            <div className="col-sm-6">
+        <div>
             <h2>Pet Editor</h2>
             <label>ID</label>
             <input className="form-control"
@@ -56,9 +51,9 @@ const PetEditorComponent = () => {
             <label>Pet Owner ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setPet(pet =>
-                           ({...pet, petOwnerId: e.target.value}))}
-                   value={pet.petOwnerId}/>
+                   {petOwnerId = e.target.value}}
+                   value={pet.petOwnerId}
+                   />
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>
@@ -69,21 +64,20 @@ const PetEditorComponent = () => {
                     Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createPet(pet)}>
+                    onClick={() => createPet(petOwnerId, pet)}>
                     Create
             </button>
             <button className="btn btn-primary"
                     onClick={() => updatePet(pet.id, pet)}>
                     Save
             </button>
-            </div>
-            <div className="col-sm-6">
-                <h2>Owner Information</h2>
-                <label>Pet Owner ID</label>
-                <input className="form-control"
-                       readOnly
-                       value={petOwner.id}/>
-            </div>
+            <br/>
+            <Link to={`/petOwners/${pet.petOwnerId}`}>
+                <div className="form-group row">
+                    <h2>Owner Information</h2>
+                </div>
+            </Link>
+
         </div>
     )
 }

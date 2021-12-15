@@ -1,4 +1,5 @@
 const AVAILABILITIES_URL = "http://localhost:8080/api/availabilities"
+const VETS_URL = "http://localhost:8080/api/vets"
 
 export const findAllAvailabilities = () =>
     fetch(AVAILABILITIES_URL)
@@ -12,6 +13,10 @@ export const deleteAvailability = (id) =>
     fetch(`${AVAILABILITIES_URL}/${id}`, {
         method: "DELETE"
     })
+
+export const findAvailabilitiesForVet = (vetId) =>
+    fetch(`${VETS_URL}/${vetId}/availabilities`)
+        .then(response => response.json())
 
 export const createAvailability = (availability) =>
     fetch(AVAILABILITIES_URL, {
@@ -34,5 +39,6 @@ export default {
     findAvailabilityById,
     deleteAvailability,
     createAvailability,
-    updateAvailability
+    updateAvailability,
+    findAvailabilitiesForVet
 }
