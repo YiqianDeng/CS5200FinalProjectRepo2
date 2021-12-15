@@ -16,8 +16,6 @@ public class Pet {
     @ManyToOne
     @JsonIgnore
     private PetOwner petOwner;
-
-//    private String petOwner;
     private String species;
     private int age;
 
@@ -81,13 +79,4 @@ public class Pet {
     public void setHistories(List<History> histories) {
         this.histories = histories;
     }
-
-//    public Pet() {
-//    }
-//
-//    public Pet(PetOwner petOwner, String species, int age) {
-//        this.petOwner = petOwner;
-//        this.species = species;
-//        this.age = age;
-//    }
 }

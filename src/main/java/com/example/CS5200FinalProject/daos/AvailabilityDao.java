@@ -20,8 +20,14 @@ public class AvailabilityDao {
     @Autowired
     VetRepository vetRepository;
 
-    @PostMapping("/api/availabilities")
-    public Availability createAvailability(@RequestBody Availability availability) { return availabilityRepository.save(availability); }
+    @PostMapping("/api/vets/{vetId}/availabilities")
+    public Availability createAvailability(@PathVariable("vetId") Integer vetId,
+                                           @RequestBody Availability availability) {
+        availability = availabilityRepository.save(availability);
+        Vet vet = vetRepository.findVetById(vetId);
+        availability.setVet(vet);
+        return availabilityRepository.save(availability);
+    }
 
     @GetMapping("/api/availabilities")
     public List<Availability> findAllAvailabilities() { return availabilityRepository.findAllAvailabilities(); }
@@ -47,7 +53,6 @@ public class AvailabilityDao {
         availability.setAvailable(availabilityUpdates.isAvailable());
         availability.setDate(availabilityUpdates.getDate());
         availability.setTimeSlot(availabilityUpdates.getTimeSlot());
-        availability.setVet(availabilityUpdates.getVet());
         return availabilityRepository.save(availability);
     }
 

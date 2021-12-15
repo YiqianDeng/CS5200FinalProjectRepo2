@@ -51,12 +51,4 @@ public class HistoryService {
     public void setHistory(History history) {
         this.history = history;
     }
-
-    public HistoryService() {
-    }
-
-    public HistoryService(Service service, History history) {
-        this.history = history;
-        this.service = service;
-    }
 }

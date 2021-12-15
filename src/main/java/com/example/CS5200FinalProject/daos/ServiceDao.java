@@ -33,8 +33,6 @@ public class ServiceDao {
         Service service = serviceRepository.findServiceById(id);
         service.setName(serviceUpdates.getName());
         service.setCost(serviceUpdates.getCost());
-        service.setHistoryServices(serviceUpdates.getHistoryServices());
-        service.setReserveServices(serviceUpdates.getReserveServices());
         return serviceRepository.save(service);
     }
 

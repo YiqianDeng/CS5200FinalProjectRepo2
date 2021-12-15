@@ -1,9 +1,13 @@
 package com.example.CS5200FinalProject.daos;
 
+import com.example.CS5200FinalProject.models.History;
+import com.example.CS5200FinalProject.models.Reservation;
 import com.example.CS5200FinalProject.models.ReserveService;
 import com.example.CS5200FinalProject.models.Service;
+import com.example.CS5200FinalProject.repositories.ReservationRepository;
 import com.example.CS5200FinalProject.repositories.ReserveServiceRepository;
 
+import com.example.CS5200FinalProject.repositories.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,9 +26,23 @@ public class ReserveServiceDao {
   @Autowired
   ReserveServiceRepository reserveServiceRepository;
 
-  @PostMapping("/api/reserve_services")
-  public ReserveService createReserveService(@RequestBody ReserveService reserveService) {
-    return reserveServiceRepository.save(reserveService);
+  @Autowired
+  ReservationRepository reservationRepository;
+
+  @Autowired
+  ServiceRepository serviceRepository;
+
+  @PostMapping("/api/reservations/{reservationId}/services/{serviceId}/reserve_services")
+  public ReserveService createReserveService(
+          @PathVariable("reservationId") Integer reservationId,
+          @PathVariable("serviceId") Integer serviceId,
+          @RequestBody ReserveService reserveService) {
+      reserveService = reserveServiceRepository.save(reserveService);
+      Reservation reservation = reservationRepository.findReservationById(reservationId);
+      Service service = serviceRepository.findServiceById(serviceId);
+      reserveService.setReservation(reservation);
+      reserveService.setService(service);
+      return reserveServiceRepository.save(reserveService);
   }
 
   @GetMapping("/api/reserve_services")
@@ -34,17 +52,6 @@ public class ReserveServiceDao {
   public ReserveService findReserveServiceById(
           @PathVariable("reserve_servicesId") Integer id) {
     return reserveServiceRepository.findReserveServiceById(id);
-  }
-
-  @PutMapping("/api/reserve_services/{reserve_servicesId}")
-  public ReserveService updateReserveService(
-          @PathVariable("reserve_servicesId") Integer id,
-          @RequestBody ReserveService reserveServiceUpdates) {
-    ReserveService reserveService = reserveServiceRepository.findReserveServiceById(id);
-    reserveService.setId(reserveServiceUpdates.getId());
-    reserveService.setService(reserveServiceUpdates.getService());
-    reserveService.setReservation(reserveServiceUpdates.getReservation());
-    return reserveServiceRepository.save(reserveService);
   }
 
   @DeleteMapping("/api/reserve_services/{reserve_servicesId}")

@@ -77,13 +77,4 @@ public class Reservation {
     public void setTime(Timestamp time) {
         this.time = time;
     }
-
-    public Reservation() {
-    }
-
-    public Reservation(Vet vet, Pet pet, Timestamp time) {
-        this.vet = vet;
-        this.pet = pet;
-        this.time = time;
-    }
 }

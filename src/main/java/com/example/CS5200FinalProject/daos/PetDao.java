@@ -49,11 +49,8 @@ public class PetDao {
             @PathVariable("petId") Integer id,
             @RequestBody Pet petUpdates) {
         Pet pet = petRepository.findPetById(id);
-//        pet.setPetOwner(petUpdates.getPetOwner());
         pet.setSpecies(petUpdates.getSpecies());
         pet.setAge(petUpdates.getAge());
-        pet.setReservations(petUpdates.getReservations());
-        pet.setHistories(petUpdates.getHistories());
         return petRepository.save(pet);
     }
 

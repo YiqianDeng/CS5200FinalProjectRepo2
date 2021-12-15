@@ -58,17 +58,8 @@ public class Availability {
         this.vet = vet;
     }
 
+    @Transient
     public int getVetId(){
         return vet.getId();
-    }
-
-    public Availability() {
-    }
-
-    public Availability(boolean available, Date date, String time_slot, Vet vet) {
-        this.available = available;
-        this.date = date;
-        this.timeSlot = time_slot;
-        this.vet = vet;
     }
 }

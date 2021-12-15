@@ -76,13 +76,4 @@ public class History {
     public void setTime(Timestamp time) {
         this.time = time;
     }
-
-    public History() {
-    }
-
-    public History(Vet vet, Pet pet, Timestamp time) {
-        this.vet = vet;
-        this.pet = pet;
-        this.time = time;
-    }
 }
