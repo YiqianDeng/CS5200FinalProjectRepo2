@@ -64,7 +64,7 @@ const PetOwnerEditorComponent = () => {
                            ({...petOwner, phone: e.target.value}))}
                    value={petOwner.phone}/>
             <label>Date of Birth</label>
-            <input className="form-control date-picker"
+            <input className="form-control"
                    onChange={(e) =>
                        setPetOwner(petOwner =>
                            ({...petOwner, dateOfBirth: e.target.value}))}
