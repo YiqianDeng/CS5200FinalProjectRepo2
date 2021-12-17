@@ -14,25 +14,18 @@ export const deleteReservation = (id) =>
     fetch(`${RESERVATIONS_URL}/${id}`, {
         method: "DELETE"
     })
+
 export const findReservationsForVet = (vetId) =>
     fetch(`${VETS_URL}/${vetId}/reservations`)
         .then(response => response.json())
-
 
 export const findReservationsForPet = (petId) =>
     fetch(`${PETS_URL}/${petId}/reservations`)
         .then(response => response.json())
 
-export const createReservation = (petId, reservation) =>
-    fetch(`${PETS_URL}/${petId}/reservations`, {
+export const createReservation = (petId, vetId, reservation) =>
+    fetch(`${PETS_URL}/${petId}/vets/${vetId}/reservations`, {
       method: 'POST',
-        body: JSON.stringify(reservation),
-        headers: {'content-type': 'application/json'}
-    })
-        .then(response => response.json())
-export const createReservation = (vetId,reservation) =>
-    fetch(`${RESERVATIONS_URL}/${vetId}/pets`, {
-        method: 'POST',
         body: JSON.stringify(reservation),
         headers: {'content-type': 'application/json'}
     })

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Reservation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
 
     @ManyToOne
@@ -28,16 +28,16 @@ public class Reservation {
     @JsonIgnore
     private List<ReserveService> reserveServices;
 
-    public int getId() {
+    public Integer getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public List<ReserveService> getReserveServices() {
         return reserveServices;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setReserveServices(List<ReserveService> reserveServices) {

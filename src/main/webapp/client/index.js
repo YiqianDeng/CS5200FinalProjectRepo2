@@ -1,31 +1,31 @@
-import PetListComponent from "./components/PetListComponent";
-import PetEditorComponent from "./components/PetEditorComponent";
-import ReservationListComponent from "./components/ReservationListComponent";
-import ReservationEditorComponent from "./components/ReservationEditorComponent";
-import HistoryListComponent from "./components/HistoryListComponent";
-import HistoryEditorComponent from "./components/HistoryEditorComponent";
-import ServiceListComponent from "./components/ServiceListComponent";
-import ServiceEditorComponent from "./components/ServiceEditorComponent";
-import AvailabilityListComponent from "./components/AvailabilityListComponent";
-import AvailabilityEditorComponent from "./components/AvailabilityEditorComponent";
-import PetOwnerListComponent from "./components/PetOwnerListComponent";
-import PetOwnerEditorComponent from "./components/PetOwnerEditorComponent";
-import ReserveServiceListComponent from "./components/ReserveServiceListComponent";
-import ReserveServiceEditorComponent from "./components/ReserveServiceEditorComponent";
-import VetListComponent from "./components/VetListComponent";
-import VetEditorComponent from "./components/VetEditorComponent";
-import HistoryServiceListComponent from "./components/HistoryServiceListComponent";
-import HistoryServiceEditorComponent from "./components/HistoryServiceEditorComponent";
-import PetsForPetOwnerComponent from "./components/PetsForPetOwnerComponent";
-import HistoryServicesForHistoryComponent from "./components/HistoryServicesForHistoryComponent";
-import HistoryServicesForServiceComponent from "./components/HistoryServicesForServiceComponent";
-import ReserveServicesForServiceComponent from "./components/HistoryServicesForServiceComponent";
-import AvailabilitiesForVetComponent from "./components/AvailabilitiesForVetComponent";
-import ReservationsForPetComponent from "./components/ReservationsForPetComponent";
-import HistoriesForPetComponent from "./components/HistoriesForPetComponent";
-import ReserveServicesForReservationComponent from "./components/ReserveServicesForReservationComponent";
-import ReservationsForVetComponent from "./components/ReservationsForVetComponent";
-import HistoriesForVetComponent from "./components/HistoriesForVetComponent";
+import PetListComponent from "./components/Pet/PetListComponent";
+import PetEditorComponent from "./components/Pet/PetEditorComponent";
+import ReservationListComponent from "./components/Reservation/ReservationListComponent";
+import ReservationEditorComponent from "./components/Reservation/ReservationEditorComponent";
+import HistoryListComponent from "./components/History/HistoryListComponent";
+import HistoryEditorComponent from "./components/History/HistoryEditorComponent";
+import ServiceListComponent from "./components/Service/ServiceListComponent";
+import ServiceEditorComponent from "./components/Service/ServiceEditorComponent";
+import AvailabilityListComponent from "./components/Availability/AvailabilityListComponent";
+import AvailabilityEditorComponent from "./components/Availability/AvailabilityEditorComponent";
+import PetOwnerListComponent from "./components/PetOwner/PetOwnerListComponent";
+import PetOwnerEditorComponent from "./components/PetOwner/PetOwnerEditorComponent";
+import ReserveServiceListComponent from "./components/ReserveService/ReserveServiceListComponent";
+import ReserveServiceEditorComponent from "./components/ReserveService/ReserveServiceEditorComponent";
+import VetListComponent from "./components/Vet/VetListComponent";
+import VetEditorComponent from "./components/Vet/VetEditorComponent";
+import HistoryServiceListComponent from "./components/HistoryService/HistoryServiceListComponent";
+import HistoryServiceEditorComponent from "./components/HistoryService/HistoryServiceEditorComponent";
+import PetsForPetOwnerComponent from "./components/Pet/PetsForPetOwnerComponent";
+import HistoryServicesForHistoryComponent from "./components/HistoryService/HistoryServicesForHistoryComponent";
+import HistoryServicesForServiceComponent from "./components/HistoryService/HistoryServicesForServiceComponent";
+import ReserveServicesForServiceComponent from "./components/HistoryService/HistoryServicesForServiceComponent";
+import AvailabilitiesForVetComponent from "./components/Availability/AvailabilitiesForVetComponent";
+import ReservationsForPetComponent from "./components/Reservation/ReservationsForPetComponent";
+import HistoriesForPetComponent from "./components/History/HistoriesForPetComponent";
+import ReserveServicesForReservationComponent from "./components/ReserveService/ReserveServicesForReservationComponent";
+import ReservationsForVetComponent from "./components/Reservation/ReservationsForVetComponent";
+import HistoriesForVetComponent from "./components/History/HistoriesForVetComponent";
 
 const {HashRouter, Route, Link} = window.ReactRouterDOM;
 const App = () => {
@@ -172,8 +172,20 @@ const App = () => {
                     <HistoriesForPetComponent/>
                 </Route>
 
-                <Route path="/reservations/:reservationId/reserve_services" exact={true}>
+                <Route path="/services/:serviceId/reserve_services" exact={true}>
                     <ReserveServicesForReservationComponent/>
+                </Route>
+
+                <Route path="/reservations/:reservationId/reserve_services" exact={true}>
+                    <ReserveServicesForServiceComponent/>
+                </Route>
+
+                <Route path="/histories/:historyId/history_services" exact={true}>
+                    <HistoryServicesForHistoryComponent/>
+                </Route>
+
+                <Route path="/services/:serviceId/history_services" exact={true}>
+                    <HistoryServicesForServiceComponent/>
                 </Route>
 
                 <Route path="/vets/:vetId/histories" exact={true}>

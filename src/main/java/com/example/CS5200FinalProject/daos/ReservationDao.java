@@ -24,7 +24,7 @@ public class ReservationDao {
     @Autowired
     PetRepository petRepository;
 
-    @PostMapping("/api/vets/{vetId}/reservations")
+    @PostMapping("/api/pets/{petId}/vets/{vetId}/reservations")
     public Reservation createReservation(
             @PathVariable("petId") Integer petId,
             @PathVariable("vetId") Integer vetId,
@@ -59,7 +59,6 @@ public class ReservationDao {
             @PathVariable("vetId") Integer vetId) {
         Vet vet = vetRepository.findById(vetId).get();
         return vet.getReservations();
-
     }
 
     @PutMapping("/api/reservations/{id}")

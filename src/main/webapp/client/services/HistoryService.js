@@ -16,12 +16,7 @@ export const deleteHistory = (id) =>
         method: "DELETE"
     })
 
-
-export const findHistoriesForPet = (petId) =>
-    fetch(`${PETS_URL}/${petId}/histories`)
-        .then(response => response.json())
-
-export const createHistory = (petId, history) =>
+export const createHistory = (petId, vetId, history) =>
     fetch(`${PETS_URL}/${petId}/vets/${vetId}/histories`, {
       method: 'POST',
         body: JSON.stringify(history),
@@ -29,16 +24,12 @@ export const createHistory = (petId, history) =>
     })
         .then(response => response.json())
 
-export const findHistoriesForVet = (vetId) =>
-    fetch(`${VETS_URL}/${vetId}/histories`)
+export const findHistoriesForPet = (petId) =>
+    fetch(`${PETS_URL}/${petId}/histories`)
         .then(response => response.json())
 
-export const createHistory = (vetId,history) =>
-    fetch(`${VETS_URL}/${vetId}/histories`, {
-        method: 'POST',
-        body: JSON.stringify(history),
-        headers: {'content-type': 'application/json'}
-    })
+export const findHistoriesForVet = (vetId) =>
+    fetch(`${VETS_URL}/${vetId}/histories`)
         .then(response => response.json())
 
 export const updateHistory = (id, history) =>
@@ -55,5 +46,6 @@ export default {
     deleteHistory,
     createHistory,
     updateHistory,
-    findHistoriesForVet
+    findHistoriesForVet,
+    findHistoriesForPet
 }

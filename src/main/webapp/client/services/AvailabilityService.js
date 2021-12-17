@@ -18,8 +18,8 @@ export const findAvailabilitiesForVet = (vetId) =>
     fetch(`${VETS_URL}/${vetId}/availabilities`)
         .then(response => response.json())
 
-export const createAvailability = (availability) =>
-    fetch(AVAILABILITIES_URL, {
+export const createAvailability = (vetId, availability) =>
+    fetch(`${VETS_URL}/${vetId}/availabilities`, {
         method: 'POST',
         body: JSON.stringify(availability),
         headers: {'content-type': 'application/json'}
