@@ -18,6 +18,7 @@ import HistoryServiceListComponent from "./components/HistoryServiceListComponen
 import HistoryServiceEditorComponent from "./components/HistoryServiceEditorComponent";
 import PetsForPetOwnerComponent from "./components/PetsForPetOwnerComponent";
 import AvailabilitiesForVetComponent from "./components/AvailabilitiesForVetComponent";
+import ReservationsForPetComponent from "./components/ReservationsForPetComponent";
 
 const {HashRouter, Route, Link} = window.ReactRouterDOM;
 const App = () => {
@@ -154,6 +155,10 @@ const App = () => {
 
                 <Route path="/vets/:vetId/availabilities" exact={true}>
                     <AvailabilitiesForVetComponent/>
+                </Route>
+
+                <Route path="/pets/:petId/reservations" exact={true}>
+                    <ReservationsForPetComponent/>
                 </Route>
 
             </HashRouter>

@@ -47,6 +47,13 @@ public class ReservationDao {
         return reservationRepository.findReservationById(id);
     }
 
+    @GetMapping("/api/pets/{petId}/reservations")
+    public List<Reservation> findReservationsForPet(
+            @PathVariable("petId") Integer petId) {
+        Pet pet = petRepository.findById(petId).get();
+        return pet.getReservations();
+    }
+
     @PutMapping("/api/reservations/{id}")
     public Reservation updateReservation(
             @PathVariable("id") Integer id,

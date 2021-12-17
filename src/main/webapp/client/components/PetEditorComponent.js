@@ -77,6 +77,10 @@ const PetEditorComponent = () => {
                     <h2>Owner Information</h2>
                 </div>
             </Link>
+            <br/>
+            <Link to={`/pets/${pet.id}/reservations`}>
+                <h2>Reservations</h2>
+            </Link>
 
         </div>
     )
