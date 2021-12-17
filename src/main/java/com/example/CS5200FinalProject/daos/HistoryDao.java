@@ -2,6 +2,7 @@ package com.example.CS5200FinalProject.daos;
 
 import com.example.CS5200FinalProject.models.History;
 import com.example.CS5200FinalProject.models.Pet;
+import com.example.CS5200FinalProject.models.PetOwner;
 import com.example.CS5200FinalProject.models.Vet;
 import com.example.CS5200FinalProject.repositories.HistoryRepository;
 import com.example.CS5200FinalProject.repositories.PetRepository;

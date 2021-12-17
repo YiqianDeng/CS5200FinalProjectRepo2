@@ -68,6 +68,10 @@ const HistoryEditorComponent = () => {
                     onClick={() => updateHistory(thisHistory.id, thisHistory)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/histories/${history.id}/history_services`}>
+                <h2>History Services</h2>
+            </Link>
         </div>
     )
 }

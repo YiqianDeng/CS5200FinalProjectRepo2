@@ -17,6 +17,9 @@ import VetEditorComponent from "./components/VetEditorComponent";
 import HistoryServiceListComponent from "./components/HistoryServiceListComponent";
 import HistoryServiceEditorComponent from "./components/HistoryServiceEditorComponent";
 import PetsForPetOwnerComponent from "./components/PetsForPetOwnerComponent";
+import HistoryServicesForHistoryComponent from "./components/HistoryServicesForHistoryComponent";
+import HistoryServicesForServiceComponent from "./components/HistoryServicesForServiceComponent";
+import ReserveServicesForServiceComponent from "./components/HistoryServicesForServiceComponent";
 import AvailabilitiesForVetComponent from "./components/AvailabilitiesForVetComponent";
 
 const {HashRouter, Route, Link} = window.ReactRouterDOM;
