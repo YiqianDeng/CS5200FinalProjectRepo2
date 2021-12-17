@@ -34,6 +34,7 @@ const ReservationEditorComponent = () => {
             <h2>Reservation Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={reservation.id}/>
             <label>Vet ID</label>
             <input className="form-control"

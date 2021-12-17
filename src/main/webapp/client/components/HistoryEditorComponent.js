@@ -34,6 +34,7 @@ const HistoryEditorComponent = () => {
             <h2>History Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={thisHistory.id}/>
             <label>Vet</label>
             <input className="form-control"

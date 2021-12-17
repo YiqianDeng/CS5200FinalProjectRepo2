@@ -32,6 +32,7 @@ const PetOwnerEditorComponent = () => {
             <h2>PetOwner Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={petOwner.id}/>
 
             <label>Number of Visits</label>

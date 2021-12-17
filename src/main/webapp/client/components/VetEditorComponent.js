@@ -32,6 +32,7 @@ const VetEditorComponent = () => {
             <h2>Vet Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={vet.id}/>
             <label>Specialty</label>
             <input className="form-control"
