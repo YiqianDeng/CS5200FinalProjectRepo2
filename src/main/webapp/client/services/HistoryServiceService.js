@@ -1,4 +1,6 @@
 const HISTORYSERVICES_URL = "http://localhost:8080/api/history_services"
+const HISTORY_URL = "http://localhost:8080/api/histories"
+const SERVICES_URL = "http://localhost:8080/api/services"
 
 export const findAllHistoryServices = () =>
     fetch(HISTORYSERVICES_URL)
@@ -12,6 +14,14 @@ export const deleteHistoryService = (id) =>
     fetch(`${HISTORYSERVICES_URL}/${id}`, {
         method: "DELETE"
     })
+
+export const findHistoryServicesForHistory = (historyId) =>
+    fetch(`${HISTORY_URL}/${historyId}/history_services`)
+        .then(response => response.json())
+
+export const findHistoryServicesForService = (serviceId) =>
+    fetch(`${SERVICES_URL}/${serviceId}/history_services`)
+        .then(response => response.json())
 
 export const createHistoryService = (historyService) =>
     fetch(HISTORYSERVICES_URL, {
@@ -34,5 +44,7 @@ export default {
     findHistoryServiceById,
     deleteHistoryService,
     createHistoryService,
-    updateHistoryService
+    updateHistoryService,
+    findHistoryServicesForHistory,
+    findHistoryServicesForService
 }

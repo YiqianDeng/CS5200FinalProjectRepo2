@@ -1,4 +1,5 @@
 const RESERVESERVICES_URL = "http://localhost:8080/api/reserve_services"
+const SERVICES_URL = "http://localhost:8080/api/services"
 
 export const findAllReserveServices = () =>
     fetch(RESERVESERVICES_URL)
@@ -13,10 +14,14 @@ export const deleteReserveService = (id) =>
         method: "DELETE"
     })
 
-export const createReserveService = (reserveService) =>
-    fetch(RESERVESERVICES_URL, {
+export const findReserveServicesForService = (serviceId) =>
+    fetch(`${SERVICES_URL}/${serviceId}/reserve_services`)
+        .then(response => response.json())
+
+export const createReservation = (reservation) =>
+    fetch(RESERVATIONS_URL, {
         method: 'POST',
-        body: JSON.stringify(reserveService),
+        body: JSON.stringify(reservation),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
@@ -34,5 +39,6 @@ export default {
     findReserveServiceById,
     deleteReserveService,
     createReserveService,
-    updateReserveService
+    updateReserveService,
+    findReserveServicesForService
 }

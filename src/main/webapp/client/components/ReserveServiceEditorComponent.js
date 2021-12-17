@@ -6,14 +6,15 @@ const ReserveServiceEditorComponent = () => {
 
     const {id} = useParams()
     const [reserveService, setReserveService] = useState({})
+    let serviceId;
     useEffect(() => {
         if(id !== "new") {
             findReserveServiceById(id)
         }
     }, []);
 
-    const createReserveService = (reserveService) =>
-        reserveServiceService.createReserveService(reserveService)
+    const createReserveService = (serviceId, reserveService) =>
+        reserveServiceService.createReserveService(serviceId, reserveService)
             .then(() => history.back())
 
     const findReserveServiceById = (id) =>
@@ -35,17 +36,18 @@ const ReserveServiceEditorComponent = () => {
             <input className="form-control"
                    readOnly
                    value={reserveService.id}/>
-            <label>Reservation</label>
+            <label>Reservation ID</label>
             <input className="form-control"
                    onChange={(e) =>
                        setReserveService(reserveService =>
                                   ({...reserveService, reservationId: e.target.value}))}
                    value={reserveService.reservationId}/>
-            <label>Service</label>
+            <label>Service ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setReserveService(reserveService =>
-                                  ({...reserveService, serviceId: e.target.value}))}
+                       // setReserveService(reserveService =>
+                       //            ({...reserveService, serviceId: e.target.value}))}
+                   {serviceId = e.target.value}}
                    value={reserveService.serviceId}/>
             <br/>
             <button className="btn btn-warning"
@@ -57,13 +59,19 @@ const ReserveServiceEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createReserveService(reserveService)}>
+                    onClick={() => createReserveService(serviceId, reserveService)}>
                 Create
             </button>
             <button className="btn btn-primary"
                     onClick={() => updateReserveService(reserveService.id, reserveService)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/services/${reserveService.serviceId}`}>
+                <div className="form-group row">
+                    <h2>Service Information</h2>
+                </div>
+            </Link>
         </div>
     )
 

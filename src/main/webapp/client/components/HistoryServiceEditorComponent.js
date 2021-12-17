@@ -6,14 +6,16 @@ const HistoryServiceEditorComponent = () => {
 
     const {id} = useParams()
     const [historyService, setHistoryService] = useState({})
+    let serviceId;
+    let historyId;
     useEffect(() => {
         if(id !== "new") {
             findHistoryServiceById(id)
         }
     }, []);
 
-    const createHistoryService = (historyService) =>
-        historyServiceService.createHistoryService(historyService)
+    const createHistoryService = (historyId, serviceId, historyService) =>
+        historyServiceService.createHistoryService(historyId, serviceId, historyService)
             .then(() => history.back())
 
     const findHistoryServiceById = (id) =>
@@ -35,17 +37,19 @@ const HistoryServiceEditorComponent = () => {
             <input className="form-control"
                    readOnly
                    value={historyService.id}/>
-            <label>History</label>
+            <label>History ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setHistoryService(historyService =>
-                                             ({...historyService, history: e.target.value}))}
+                       // setHistoryService(historyService =>
+                       //                       ({...historyService, history: e.target.value}))}
+                   {historyId = e.target.value}}
                    value={historyService.historyId}/>
-            <label>Service</label>
+            <label>Service ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setHistoryService(historyService =>
-                                             ({...historyService, service: e.target.value}))}
+                       // setHistoryService(historyService =>
+                       //                       ({...historyService, service: e.target.value}))}
+                   {serviceId = e.target.value}}
                    value={historyService.serviceId}/>
             <br/>
             <button className="btn btn-warning"
@@ -57,13 +61,25 @@ const HistoryServiceEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createHistoryService(historyService)}>
+                    onClick={() => createHistoryService(serviceId, historyId, historyService)}>
                 Create
             </button>
             <button className="btn btn-primary"
                     onClick={() => updateHistoryService(historyService.id, historyService)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/histories/${historyService.historyId}`}>
+                <div className="form-group row">
+                    <h2>History Information</h2>
+                </div>
+            </Link>
+
+            <Link to={`/services/${historyService.serviceId}`}>
+                <div className="form-group row">
+                    <h2>Service Information</h2>
+                </div>
+            </Link>
         </div>
     )
 

@@ -73,6 +73,10 @@ const HistoryEditorComponent = () => {
             </button>
 
             <br/>
+            <Link to={`/histories/${history.id}/history_services`}>
+                <h2>History Services</h2>
+
+            <br/>
             <Link to={`/vets/${thisHistory.vetId}`}>
                 <div className="form-group row">
                     <h2>Vet Information</h2>
