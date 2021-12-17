@@ -47,6 +47,13 @@ public class HistoryDao {
         return historyRepository.findHistoriesById(id);
     }
 
+    @GetMapping("/api/pets/{petId}/histories")
+    public List<History> findHistoriesForPet(
+            @PathVariable("petId") Integer petId) {
+        Pet pet = petRepository.findById(petId).get();
+        return pet.getHistories();
+    }
+
     @PutMapping("/api/histories/{id}")
     public History updateHistory(
             @PathVariable("id") Integer id,

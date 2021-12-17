@@ -81,6 +81,10 @@ const PetEditorComponent = () => {
             <Link to={`/pets/${pet.id}/reservations`}>
                 <h2>Reservations</h2>
             </Link>
+            <br/>
+            <Link to={`/pets/${pet.id}/histories`}>
+                <h2>Histories</h2>
+            </Link>
 
         </div>
     )

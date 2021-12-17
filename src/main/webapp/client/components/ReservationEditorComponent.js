@@ -71,10 +71,13 @@ const ReservationEditorComponent = () => {
                 Save
             </button>
             <br/>
-            <Link to={`/pets/${pet.id}/vets/${vet.id}/reservations`}>
+            <Link to={`/pets/${reservation.petId}`}>
                 <div className="form-group row">
                     <h2>Pet Information</h2>
                 </div>
+            </Link>
+            <Link to={`/reservations/${reservation.id}/reserve_services`}>
+                <h2>ReserveServices</h2>
             </Link>
 
         </div>

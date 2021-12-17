@@ -63,6 +63,12 @@ const ReserveServiceEditorComponent = () => {
                     onClick={() => updateReserveService(reserveService.id, reserveService)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/reservations/${reserveService.reservationId}`}>
+                <div className="form-group row">
+                    <h2>Reservation Information</h2>
+                </div>
+            </Link>
         </div>
     )
 
