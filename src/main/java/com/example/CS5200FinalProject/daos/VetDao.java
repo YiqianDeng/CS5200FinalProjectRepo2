@@ -40,8 +40,6 @@ public class VetDao {
         vet.setEmail(vetUpdates.getEmail());
         vet.setPhone(vetUpdates.getPhone());
         vet.setDateOfBirth(vetUpdates.getDateOfBirth());
-        vet.setUsername(vetUpdates.getUsername());
-        vet.setPassword(vetUpdates.getPassword());
         vet.setSpecialty(vetUpdates.getSpecialty());
         vet.setTenure(vetUpdates.getTenure());
         return vetRepository.save(vet);

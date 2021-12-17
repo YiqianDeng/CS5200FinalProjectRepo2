@@ -38,8 +38,6 @@ public class PetOwnerDao {
         petOwner.setEmail(petOwnerUpdates.getEmail());
         petOwner.setPhone(petOwnerUpdates.getPhone());
         petOwner.setDateOfBirth(petOwnerUpdates.getDateOfBirth());
-        petOwner.setUsername(petOwnerUpdates.getUsername());
-        petOwner.setPassword(petOwnerUpdates.getPassword());
         petOwner.setNumberOfVisit(petOwnerUpdates.getNumberOfVisit());
         return petOwnerRepository.save(petOwner);
     }

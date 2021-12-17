@@ -84,18 +84,6 @@ const VetEditorComponent = () => {
                        setVet(vet =>
                            ({...vet, dateOfBirth: e.target.value}))}
                    value={vet.dateOfBirth}/>
-            <label>Username</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                       setVet(vet =>
-                           ({...vet, username: e.target.value}))}
-                   value={vet.username}/>
-            <label>Password</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                       setVet(vet =>
-                           ({...vet, password: e.target.value}))}
-                   value={vet.password}/>
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>

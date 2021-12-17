@@ -32,8 +32,6 @@ const PetOwnerListComponent = () => {
                         <div className="col-sm-1">Email</div>
                         <div className="col-sm-2">Phone Number</div>
                         <div className="col-sm-2">Date of Birth</div>
-                        <div className="col-sm-1">Username</div>
-                        <div className="col-sm-1">Password</div>
                     </div>
                 </li>
                 {
@@ -50,8 +48,6 @@ const PetOwnerListComponent = () => {
                                     <div className="col-sm-1">{petOwner.email}</div>
                                     <div className="col-sm-2">{petOwner.phone}</div>
                                     <div className="col-sm-2">{petOwner.dateOfBirth}</div>
-                                    <div className="col-sm-1">{petOwner.username}</div>
-                                    <div className="col-sm-1">{petOwner.password}</div>
                                 </div>
                             </Link>
                         </li>)

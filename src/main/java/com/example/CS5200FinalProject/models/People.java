@@ -13,8 +13,6 @@ public class People {
     private String email;
     private String phone;
     private Date dateOfBirth;
-    private String username;
-    private String password;
 
     public int getId() {
         return id;
@@ -62,21 +60,5 @@ public class People {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

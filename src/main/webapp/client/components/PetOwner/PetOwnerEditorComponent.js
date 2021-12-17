@@ -80,18 +80,6 @@ const PetOwnerEditorComponent = () => {
                        setPetOwner(petOwner =>
                            ({...petOwner, dateOfBirth: e.target.value}))}
                    value={petOwner.dateOfBirth}/>
-            <label>Username</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                       setPetOwner(petOwner =>
-                           ({...petOwner, username: e.target.value}))}
-                   value={petOwner.username}/>
-            <label>Password</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                       setPetOwner(petOwner =>
-                           ({...petOwner, password: e.target.value}))}
-                   value={petOwner.password}/>
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>

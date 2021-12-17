@@ -33,8 +33,6 @@ const VetListComponent = () => {
                         <div className="col-sm-1">Email</div>
                         <div className="col-sm-2">Phone Number</div>
                         <div className="col-sm-2">Date of Birth</div>
-                        <div className="col-sm-1">Username</div>
-                        <div className="col-sm-1">Password</div>
                     </div>
                 </li>
                 {
@@ -52,8 +50,6 @@ const VetListComponent = () => {
                                     <div className="col-sm-1">{vet.email}</div>
                                     <div className="col-sm-2">{vet.phone}</div>
                                     <div className="col-sm-2">{vet.dateOfBirth}</div>
-                                    <div className="col-sm-1">{vet.username}</div>
-                                    <div className="col-sm-1">{vet.password}</div>
                                 </div>
                             </Link>
                         </li>)
