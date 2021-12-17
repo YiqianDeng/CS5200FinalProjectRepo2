@@ -6,6 +6,7 @@ const ReservationEditorComponent = () => {
     const {id} = useParams()
     const [reservation, setReservation] = useState({})
     let petId;
+    let vetId;
 
     useEffect(() => {
         if(id !== "new") {
@@ -13,8 +14,8 @@ const ReservationEditorComponent = () => {
         }
     }, []);
 
-    const createReservation = (petId, reservation) =>
-        reservationService.createReservation(petId, reservation)
+    const createReservation = (petId, vetId, reservation) =>
+        reservationService.createReservation(petId, vetId, reservation)
             .then(() => history.back())
 
     const findReservationById = (id) =>
@@ -36,11 +37,10 @@ const ReservationEditorComponent = () => {
             <input className="form-control"
                    readOnly
                    value={reservation.id}/>
-            <label>Vet</label>
+            <label>Vet ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setReservation(reservation =>
-                           ({...reservation, vet: e.target.value}))}
+                   {vetId: e.target.value}}
                    value={reservation.vetId}/>
             <label>Pet</label>
             <input className="form-control"
@@ -63,7 +63,7 @@ const ReservationEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createReservation(petId, reservation)}>
+                    onClick={() => createReservation(petId, vetId, reservation)}>
                 Create
             </button>
             <button className="btn btn-primary"
@@ -71,6 +71,7 @@ const ReservationEditorComponent = () => {
                 Save
             </button>
             <br/>
+
             <Link to={`/pets/${reservation.petId}`}>
                 <div className="form-group row">
                     <h2>Pet Information</h2>
@@ -80,6 +81,11 @@ const ReservationEditorComponent = () => {
                 <h2>ReserveServices</h2>
             </Link>
 
+            <Link to={`/vets/${reservation.vetId}`}>
+                <div className="form-group row">
+                    <h2>Vet Information</h2>
+                </div>
+            </Link>
         </div>
     )
 }

@@ -1,6 +1,8 @@
 package com.example.CS5200FinalProject.daos;
 
 import com.example.CS5200FinalProject.models.History;
+import com.example.CS5200FinalProject.models.Pet;
+import com.example.CS5200FinalProject.models.PetOwner;
 import com.example.CS5200FinalProject.models.Reservation;
 import com.example.CS5200FinalProject.models.ReserveService;
 import com.example.CS5200FinalProject.models.Service;
@@ -45,6 +47,8 @@ public class ReserveServiceDao {
       return reserveServiceRepository.save(reserveService);
   }
 
+
+
   @GetMapping("/api/reserve_services")
   public List<ReserveService> findAllReserveServices() { return reserveServiceRepository.findAllReserveServices(); }
 
@@ -54,11 +58,20 @@ public class ReserveServiceDao {
     return reserveServiceRepository.findReserveServiceById(id);
   }
 
+
   @GetMapping("/api/reservations/{reservationId}/reserve_services")
   public List<ReserveService> findReserveServicesForReservation(
           @PathVariable("reservationId") Integer reservationId) {
       Reservation reservation = reservationRepository.findById(reservationId).get();
       return reservation.getReserveServices();
+  }
+
+  @GetMapping("/api/services/{serviceId}/reserve_services")
+  public List<ReserveService> findReserveServicesForService(
+          @PathVariable("serviceId") Integer serviceId) {
+    Service service = serviceRepository.findById(serviceId).get();
+    return service.getReserveServices();
+
   }
 
   @DeleteMapping("/api/reserve_services/{reserve_servicesId}")

@@ -17,10 +17,15 @@ import VetEditorComponent from "./components/VetEditorComponent";
 import HistoryServiceListComponent from "./components/HistoryServiceListComponent";
 import HistoryServiceEditorComponent from "./components/HistoryServiceEditorComponent";
 import PetsForPetOwnerComponent from "./components/PetsForPetOwnerComponent";
+import HistoryServicesForHistoryComponent from "./components/HistoryServicesForHistoryComponent";
+import HistoryServicesForServiceComponent from "./components/HistoryServicesForServiceComponent";
+import ReserveServicesForServiceComponent from "./components/HistoryServicesForServiceComponent";
 import AvailabilitiesForVetComponent from "./components/AvailabilitiesForVetComponent";
 import ReservationsForPetComponent from "./components/ReservationsForPetComponent";
 import HistoriesForPetComponent from "./components/HistoriesForPetComponent";
 import ReserveServicesForReservationComponent from "./components/ReserveServicesForReservationComponent";
+import ReservationsForVetComponent from "./components/ReservationsForVetComponent";
+import HistoriesForVetComponent from "./components/HistoriesForVetComponent";
 
 const {HashRouter, Route, Link} = window.ReactRouterDOM;
 const App = () => {
@@ -169,6 +174,14 @@ const App = () => {
 
                 <Route path="/reservations/:reservationId/reserve_services" exact={true}>
                     <ReserveServicesForReservationComponent/>
+                </Route>
+
+                <Route path="/vets/:vetId/histories" exact={true}>
+                    <HistoriesForVetComponent/>
+                </Route>
+
+                <Route path="/vets/:vetId/reservations" exact={true}>
+                    <ReservationsForVetComponent/>
                 </Route>
 
             </HashRouter>

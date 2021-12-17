@@ -1,6 +1,8 @@
 package com.example.CS5200FinalProject.daos;
 import com.example.CS5200FinalProject.models.History;
 import com.example.CS5200FinalProject.models.HistoryService;
+import com.example.CS5200FinalProject.models.Pet;
+import com.example.CS5200FinalProject.models.PetOwner;
 import com.example.CS5200FinalProject.models.Service;
 import com.example.CS5200FinalProject.repositories.HistoryRepository;
 import com.example.CS5200FinalProject.repositories.HistoryServiceRepository;
@@ -45,6 +47,20 @@ public class HistoryServiceDao {
 
   @GetMapping("/api/history_services")
   public List<HistoryService> findAllHistoryServices() { return historyServiceRepository.findAllHistoryServices(); }
+
+  @GetMapping("/api/histories/{historyId}/history_services")
+  public List<HistoryService> findHistoryServicesForHistory(
+          @PathVariable("historyId") Integer historyId) {
+    History history = historyRepository.findById(historyId).get();
+    return history.getHistoryServices();
+  }
+
+  @GetMapping("/api/services/{serviceId}/history_services")
+  public List<HistoryService> findHistoryServicesForService(
+          @PathVariable("serviceId") Integer serviceId) {
+    Service service = serviceRepository.findById(serviceId).get();
+    return service.getHistoryServices();
+  }
 
   @GetMapping("/api/history_services/{history_servicesId}")
   public HistoryService findHistoryServiceById(

@@ -33,6 +33,7 @@ const ServiceEditorComponent = () => {
             <h2>Service Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={service.id}/>
             <label>Name</label>
             <input className="form-control"
@@ -63,6 +64,13 @@ const ServiceEditorComponent = () => {
                     onClick={() => updateService(service.id, service)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/services/${service.id}/history_services`}>
+                <h2>History Services</h2>
+            </Link>
+            <Link to={`/services/${service.id}/reserve_services`}>
+                <h2>Reserve Services</h2>
+            </Link>
         </div>
     )
 }

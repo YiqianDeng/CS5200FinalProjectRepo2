@@ -2,6 +2,7 @@ package com.example.CS5200FinalProject.daos;
 
 import com.example.CS5200FinalProject.models.History;
 import com.example.CS5200FinalProject.models.Pet;
+import com.example.CS5200FinalProject.models.PetOwner;
 import com.example.CS5200FinalProject.models.Vet;
 import com.example.CS5200FinalProject.repositories.HistoryRepository;
 import com.example.CS5200FinalProject.repositories.PetRepository;
@@ -52,6 +53,13 @@ public class HistoryDao {
             @PathVariable("petId") Integer petId) {
         Pet pet = petRepository.findById(petId).get();
         return pet.getHistories();
+    }
+  
+    @GetMapping("/api/vets/{vetId}/histories")
+    public List<History> findHistoriesForVet(
+            @PathVariable("vetId") Integer vetId) {
+        Vet vet = vetRepository.findById(vetId).get();
+        return vet.getHistories();
     }
 
     @PutMapping("/api/histories/{id}")
