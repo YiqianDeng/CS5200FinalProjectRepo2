@@ -1,4 +1,5 @@
 const HISTORY_URL = "http://localhost:8080/api/histories"
+const VETS_URL = "http://localhost:8080/api/vets"
 
 export const findAllHistories = () =>
     fetch(HISTORY_URL)
@@ -13,8 +14,12 @@ export const deleteHistory = (id) =>
         method: "DELETE"
     })
 
-export const createHistory = (history) =>
-    fetch(HISTORY_URL, {
+export const findHistoriesForVet = (vetId) =>
+    fetch(`${VETS_URL}/${vetId}/histories`)
+        .then(response => response.json())
+
+export const createHistory = (vetId,history) =>
+    fetch(`${VETS_URL}/${vetId}/histories`, {
         method: 'POST',
         body: JSON.stringify(history),
         headers: {'content-type': 'application/json'}
@@ -34,5 +39,6 @@ export default {
     findHistoryById,
     deleteHistory,
     createHistory,
-    updateHistory
+    updateHistory,
+    findHistoriesForVet
 }

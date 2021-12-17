@@ -34,12 +34,68 @@ const PetOwnerEditorComponent = () => {
             <input className="form-control"
                    value={petOwner.id}/>
 
-            <label>Number of visits</label>
+            <label>Number of Visits</label>
             <input className="form-control"
                    onChange={(e) =>
                        setPetOwner(petOwner =>
                            ({...petOwner, numberOfVisit: e.target.value}))}
                    value={petOwner.numberOfVisit}/>
+            <br/>
+
+            <label>First Name</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                       setPetOwner(petOwner =>
+                           ({...petOwner, firstName: e.target.value}))}
+                   value={petOwner.firstName}/>
+            <br/>
+
+            <label>Last Name</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                       setPetOwner(petOwner =>
+                           ({...petOwner, lastName: e.target.value}))}
+                   value={petOwner.lastName}/>
+            <br/>
+
+            <label>Email</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                       setPetOwner(petOwner =>
+                           ({...petOwner, email: e.target.value}))}
+                   value={petOwner.email}/>
+            <br/>
+
+            <label>Phone Number</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                       setPetOwner(petOwner =>
+                           ({...petOwner, phone: e.target.value}))}
+                   value={petOwner.phone}/>
+            <br/>
+
+            <label>Date of Birth</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                       setPetOwner(petOwner =>
+                           ({...petOwner, dateOfBirth: e.target.value}))}
+                   value={petOwner.dateOfBirth}/>
+            <br/>
+
+            <label>Username</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                       setPetOwner(petOwner =>
+                           ({...petOwner, username: e.target.value}))}
+                   value={petOwner.username}/>
+            <br/>
+
+            <label>Password</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                       setPetOwner(petOwner =>
+                           ({...petOwner, password: e.target.value}))}
+                   value={petOwner.password}/>
             <br/>
 
             <button className="btn btn-warning"

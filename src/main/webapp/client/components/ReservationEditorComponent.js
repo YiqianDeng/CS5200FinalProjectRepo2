@@ -1,18 +1,20 @@
 import reservationService from "../services/ReservationService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const ReservationEditorComponent = () => {
     const {id} = useParams()
     const [reservation, setReservation] = useState({})
+    let vetId;
+
     useEffect(() => {
         if(id !== "new") {
             findReservationById(id)
         }
     }, []);
 
-    const createReservation = (reservation) =>
-        reservationService.createReservation(reservation)
+    const createReservation = (vetId, reservation) =>
+        reservationService.createReservation(vetId, reservation)
             .then(() => history.back())
 
     const findReservationById = (id) =>
@@ -33,11 +35,10 @@ const ReservationEditorComponent = () => {
             <label>ID</label>
             <input className="form-control"
                    value={reservation.id}/>
-            <label>Vet</label>
+            <label>Vet ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setReservation(reservation =>
-                           ({...reservation, vet: e.target.value}))}
+                   {vetId: e.target.value}}
                    value={reservation.vetId}/>
             <label>Pet</label>
             <input className="form-control"
@@ -61,13 +62,19 @@ const ReservationEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createReservation(reservation)}>
+                    onClick={() => createReservation(vetId,reservation)}>
                 Create
             </button>
             <button className="btn btn-primary"
                     onClick={() => updateReservation(reservation.id, reservation)}>
                 Save
             </button>
+            <br/>
+            <Link to={`/vets/${reservation.vetId}`}>
+                <div className="form-group row">
+                    <h2>Vet Information</h2>
+                </div>
+            </Link>
         </div>
     )
 }

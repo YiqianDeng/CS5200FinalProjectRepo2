@@ -66,6 +66,15 @@ const VetEditorComponent = () => {
             <Link to={`/vets/${vet.id}/availabilities`}>
                 <h2>Availabilities</h2>
             </Link>
+            <br/>
+            <Link to={`/vets/${vet.id}/reservations`}>
+                <h2>Reservations</h2>
+            </Link>
+            <br/>
+            <Link to={`/vets/${vet.id}/histories`}>
+                <h2>Histories</h2>
+            </Link>
+
         </div>
     )
 }
