@@ -29,15 +29,15 @@ const ReserveServicesForServiceComponent = () => {
                 </li>
                 {
                     reserveServices.map(reserveService =>
-                                            <li className="list-group-item"
-                                                key={reserveService.id}>
-                                                <Link to={`/reserveServices/${reserveService.id}`}>
-                                                    <div className="form-group row">
-                                                        <div className="col-sm-2">{reserveService.id}</div>
-                                                        <div className="col-sm-2">{reserveService.reservationId}</div>
-                                                    </div>
-                                                </Link>
-                                            </li>)
+                        <li className="list-group-item"
+                            key={reserveService.id}>
+                            <Link to={`/reserveServices/${reserveService.id}`}>
+                                <div className="form-group row">
+                                    <div className="col-sm-2">{reserveService.id}</div>
+                                    <div className="col-sm-2">{reserveService.reservationId}</div>
+                                </div>
+                            </Link>
+                        </li>)
                 }
             </ul>
         </div>

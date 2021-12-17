@@ -23,8 +23,8 @@ export const findHistoryServicesForService = (serviceId) =>
     fetch(`${SERVICES_URL}/${serviceId}/history_services`)
         .then(response => response.json())
 
-export const createHistoryService = (historyService) =>
-    fetch(HISTORYSERVICES_URL, {
+export const createHistoryService = (historyId, serviceId, historyService) =>
+    fetch(`${HISTORY_URL}/${historyId}/services/${serviceId}/history_services`, {
         method: 'POST',
         body: JSON.stringify(historyService),
         headers: {'content-type': 'application/json'}

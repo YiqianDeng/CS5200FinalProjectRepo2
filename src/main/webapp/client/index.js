@@ -173,11 +173,11 @@ const App = () => {
                 </Route>
 
                 <Route path="/services/:serviceId/reserve_services" exact={true}>
-                    <ReserveServicesForReservationComponent/>
+                    <ReserveServicesForServiceComponent/>
                 </Route>
 
                 <Route path="/reservations/:reservationId/reserve_services" exact={true}>
-                    <ReserveServicesForServiceComponent/>
+                    <ReserveServicesForReservationComponent/>
                 </Route>
 
                 <Route path="/histories/:historyId/history_services" exact={true}>

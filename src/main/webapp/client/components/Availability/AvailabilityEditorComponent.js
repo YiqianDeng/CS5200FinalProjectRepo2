@@ -14,9 +14,14 @@ const AvailabilityEditorComponent = () => {
         }
     }, []);
 
-    const createAvailability = (vetId, newAvailability) =>
-        availabilityService.createAvailability(vetId, newAvailability)
+    const createAvailability = (vetId, availability) =>{
+        let date = new Date(availability.date);
+        date = date.setDate(date.getDate() + 1)
+        date = new Date(date)
+        availability.date = date
+        availabilityService.createAvailability(vetId, availability)
             .then(() => history.back())
+        }
 
     const findAvailabilityById = (id) =>
         availabilityService.findAvailabilityById(id)
@@ -26,9 +31,13 @@ const AvailabilityEditorComponent = () => {
         availabilityService.deleteAvailability(id)
             .then(() => history.back())
 
-    const updateAvailability = (id, newAvailability) =>
+    const updateAvailability = (id, newAvailability) =>{
+        let date = new Date(availability.date);
+        date = date.setDate(date.getDate() + 1)
+        date = new Date(date)
+        availability.date = date
         availabilityService.updateAvailability(id, newAvailability)
-            .then(() => history.back())
+            .then(() => history.back())}
 
     return (
         <div>
@@ -37,11 +46,6 @@ const AvailabilityEditorComponent = () => {
             <input className="form-control"
                    readOnly
                    value={availability.id}/>
-            <label>Vet</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                        {vetId = e.target.value}}
-                   value={availability.vetId}/>
             <label>Date</label>
             <input className="form-control"
                    onChange={(e) =>
@@ -61,6 +65,11 @@ const AvailabilityEditorComponent = () => {
                        setAvailability(availability =>
                            ({...availability, timeSlot: e.target.value}))}
                    value={availability.timeSlot}/>
+            <label>Vet</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                   {vetId = e.target.value}}
+                   value={availability.vetId}/>
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>

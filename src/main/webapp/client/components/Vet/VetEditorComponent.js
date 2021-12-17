@@ -11,9 +11,13 @@ const VetEditorComponent = () => {
         }
     }, []);
 
-    const createVet = (vet) =>
+    const createVet = (vet) =>{
+        let date = new Date(vet.dateOfBirth);
+        date = date.setDate(date.getDate() + 1)
+        date = new Date(date)
+        vet.dateOfBirth = date
         vetService.createVet(vet)
-            .then(() => history.back())
+            .then(() => history.back())}
 
     const findVetById = (id) =>
         vetService.findVetById(id)
@@ -23,9 +27,13 @@ const VetEditorComponent = () => {
         vetService.deleteVet(id)
             .then(() => history.back())
 
-    const updateVet = (id, newVet) =>
+    const updateVet = (id, newVet) =>{
+        let date = new Date(vet.dateOfBirth);
+        date = date.setDate(date.getDate() + 1)
+        date = new Date(date)
+        vet.dateOfBirth = date
         vetService.updateVet(id, newVet)
-            .then(() => history.back())
+            .then(() => history.back())}
 
     return (
         <div>

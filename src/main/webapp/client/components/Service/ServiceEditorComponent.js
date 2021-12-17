@@ -1,6 +1,6 @@
 import serviceService from "../../services/ServiceService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const ServiceEditorComponent = () => {
 

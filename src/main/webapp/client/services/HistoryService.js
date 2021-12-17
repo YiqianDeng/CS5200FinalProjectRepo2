@@ -1,6 +1,5 @@
 const HISTORY_URL = "http://localhost:8080/api/histories"
-
-const PETS_URL = "http://localhost:8080/api/histories"
+const PETS_URL = "http://localhost:8080/api/pets"
 const VETS_URL = "http://localhost:8080/api/vets"
 
 export const findAllHistories = () =>

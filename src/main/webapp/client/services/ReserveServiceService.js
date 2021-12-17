@@ -20,25 +20,16 @@ export const findReserveServicesForReservation = (reservationId) =>
     fetch(`${RESERVATIONS_URL}/${reservationId}/reserve_services`)
         .then(response => response.json())
 
-export const createReserveService = (reservationId, reserveService) =>
-    fetch(`${RESERVATIONS_URL}/${reservationId}/reserve_services`, {
+export const createReserveService = (reservationId, serviceId, reserveService) =>
+    fetch(`${RESERVATIONS_URL}/${reservationId}/services/${serviceId}/reserve_services`, {
       method: 'POST',
-        body: JSON.stringify(reservation),
+        body: JSON.stringify(reserveService),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
 
 export const findReserveServicesForService = (serviceId) =>
     fetch(`${SERVICES_URL}/${serviceId}/reserve_services`)
-        .then(response => response.json())
-
-export const createReservation = (reservation) =>
-    fetch(RESERVATIONS_URL, {
-
-        method: 'POST',
-        body: JSON.stringify(reservation),
-        headers: {'content-type': 'application/json'}
-    })
         .then(response => response.json())
 
 export const updateReserveService = (id, reserveService) =>

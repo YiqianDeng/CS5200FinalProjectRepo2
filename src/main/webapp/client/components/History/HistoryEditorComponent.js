@@ -14,9 +14,8 @@ const HistoryEditorComponent = () => {
         }
     }, []);
 
-    const createHistory = (vetId, newHistory) =>
-        historyService.createHistory(vetId, newHistory)
-
+    const createHistory = (petId, vetId, newHistory) =>
+        historyService.createHistory(petId, vetId, newHistory)
             .then(() => history.back())
 
     const findHistoryById = (id) =>
@@ -38,23 +37,22 @@ const HistoryEditorComponent = () => {
             <input className="form-control"
                    readOnly
                    value={thisHistory.id}/>
-            <label>Vet</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                       setHistory(thisHistory =>
-                           ({...thisHistory, vet: e.target.value}))}
-                   value={thisHistory.vetId}/>
-            <label>Pet</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                   {petId = e.target.value}}
-                   value={thisHistory.petId}/>
             <label>Time</label>
             <input className="form-control"
                    onChange={(e) =>
                        setHistory(thisHistory =>
                            ({...thisHistory, time: e.target.value}))}
                    value={thisHistory.time}/>
+            <label>Vet</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                   {vetId = e.target.value}}
+                   value={thisHistory.vetId}/>
+            <label>Pet</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                   {petId = e.target.value}}
+                   value={thisHistory.petId}/>
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>
@@ -66,7 +64,6 @@ const HistoryEditorComponent = () => {
             </button>
             <button className="btn btn-success"
                     onClick={() => createHistory(petId, vetId, thisHistory)}>
-
                 Create
             </button>
             <button className="btn btn-primary"

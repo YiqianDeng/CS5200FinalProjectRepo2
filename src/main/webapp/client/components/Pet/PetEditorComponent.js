@@ -14,10 +14,9 @@ const PetEditorComponent = () => {
         }
     }, []);
 
-    const createPet = (petOwnerId, pet) =>{
-        console.log(petOwnerId)
+    const createPet = (petOwnerId, pet) =>
         petService.createPet(petOwnerId, pet)
-            .then(() => history.back())}
+            .then(() => history.back())
 
     const findPetById = (id) =>
         petService.findPetById(id)

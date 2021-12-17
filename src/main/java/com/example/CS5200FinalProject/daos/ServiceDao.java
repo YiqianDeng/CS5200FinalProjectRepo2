@@ -36,7 +36,7 @@ public class ServiceDao {
         return serviceRepository.save(service);
     }
 
-    @DeleteMapping("/api/service/{serviceId}")
+    @DeleteMapping("/api/services/{serviceId}")
     public void deleteService(
             @PathVariable("serviceId") Integer id) {
         serviceRepository.deleteById(id);

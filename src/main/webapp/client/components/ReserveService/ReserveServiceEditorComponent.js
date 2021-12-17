@@ -1,20 +1,21 @@
 import reserveServiceService from "../../services/ReserveServiceService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const ReserveServiceEditorComponent = () => {
 
     const {id} = useParams()
     const [reserveService, setReserveService] = useState({})
     let serviceId;
+    let reservationId;
     useEffect(() => {
         if(id !== "new") {
             findReserveServiceById(id)
         }
     }, []);
 
-    const createReserveService = (serviceId, reserveService) =>
-        reserveServiceService.createReserveService(serviceId, reserveService)
+    const createReserveService = (reservationId, serviceId, reserveService) =>
+        reserveServiceService.createReserveService(reservationId, serviceId, reserveService)
             .then(() => history.back())
 
     const findReserveServiceById = (id) =>
@@ -39,14 +40,11 @@ const ReserveServiceEditorComponent = () => {
             <label>Reservation ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setReserveService(reserveService =>
-                                  ({...reserveService, reservationId: e.target.value}))}
+                   {reservationId = e.target.value}}
                    value={reserveService.reservationId}/>
             <label>Service ID</label>
             <input className="form-control"
                    onChange={(e) =>
-                       // setReserveService(reserveService =>
-                       //            ({...reserveService, serviceId: e.target.value}))}
                    {serviceId = e.target.value}}
                    value={reserveService.serviceId}/>
             <br/>
@@ -59,12 +57,8 @@ const ReserveServiceEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createReserveService(serviceId, reserveService)}>
+                    onClick={() => createReserveService(reservationId, serviceId, reserveService)}>
                 Create
-            </button>
-            <button className="btn btn-primary"
-                    onClick={() => updateReserveService(reserveService.id, reserveService)}>
-                Save
             </button>
             <br/>
             <Link to={`/reservations/${reserveService.reservationId}`}>

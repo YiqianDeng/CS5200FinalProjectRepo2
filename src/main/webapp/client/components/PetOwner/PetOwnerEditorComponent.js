@@ -11,9 +11,13 @@ const PetOwnerEditorComponent = () => {
         }
     }, []);
 
-    const createPetOwner = (petOwner) =>
+    const createPetOwner = (petOwner) =>{
+        let date = new Date(petOwner.dateOfBirth);
+        date = date.setDate(date.getDate() + 1)
+        date = new Date(date)
+        petOwner.dateOfBirth = date
         petOwnerService.createPetOwner(petOwner)
-            .then(() => history.back())
+            .then(() => history.back())}
 
     const findPetOwnerById = (id) =>
         petOwnerService.findPetOwnerById(id)
@@ -23,9 +27,13 @@ const PetOwnerEditorComponent = () => {
         petOwnerService.deletePetOwner(id)
             .then(() => history.back())
 
-    const updatePetOwner = (id, newPetOwner) =>
+    const updatePetOwner = (id, newPetOwner) =>{
+        let date = new Date(petOwner.dateOfBirth);
+        date = date.setDate(date.getDate() + 1)
+        date = new Date(date)
+        petOwner.dateOfBirth = date
         petOwnerService.updatePetOwner(id, newPetOwner)
-            .then(() => history.back())
+            .then(() => history.back())}
 
     return (
         <div>

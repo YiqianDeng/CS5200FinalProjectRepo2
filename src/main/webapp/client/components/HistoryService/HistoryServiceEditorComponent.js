@@ -1,6 +1,6 @@
 import historyServiceService from "../../services/HistoryServiceService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const HistoryServiceEditorComponent = () => {
 
@@ -61,12 +61,8 @@ const HistoryServiceEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createHistoryService(serviceId, historyId, historyService)}>
+                    onClick={() => createHistoryService(historyId, serviceId, historyService)}>
                 Create
-            </button>
-            <button className="btn btn-primary"
-                    onClick={() => updateHistoryService(historyService.id, historyService)}>
-                Save
             </button>
             <br/>
             <Link to={`/histories/${historyService.historyId}`}>

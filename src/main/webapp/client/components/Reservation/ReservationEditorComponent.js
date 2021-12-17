@@ -37,6 +37,12 @@ const ReservationEditorComponent = () => {
             <input className="form-control"
                    readOnly
                    value={reservation.id}/>
+            <label>Time</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                       setReservation(reservation =>
+                           ({...reservation, time: e.target.value}))}
+                   value={reservation.time}/>
             <label>Vet</label>
             <input className="form-control"
                    onChange={(e) =>
@@ -47,12 +53,6 @@ const ReservationEditorComponent = () => {
                    onChange={(e) =>
                    {petId =  e.target.value}}
                    value={reservation.petId}/>
-            <label>Time</label>
-            <input className="form-control"
-                   onChange={(e) =>
-                       setReservation(reservation =>
-                           ({...reservation, time: e.target.value}))}
-                   value={reservation.time}/>
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>
