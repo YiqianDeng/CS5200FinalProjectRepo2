@@ -33,6 +33,7 @@ const HistoryServiceEditorComponent = () => {
             <h2>History Service Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={historyService.id}/>
             <label>History</label>
             <input className="form-control"

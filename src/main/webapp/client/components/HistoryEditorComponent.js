@@ -1,18 +1,20 @@
 import historyService from "../services/HistoryService"
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const HistoryEditorComponent = () => {
     const {id} = useParams()
     const [thisHistory, setHistory] = useState({})
+    let vetId;
+
     useEffect(() => {
         if(id !== "new") {
             findHistoryById(id)
         }
     }, []);
 
-    const createHistory = (newHistory) =>
-        historyService.createHistory(newHistory)
+    const createHistory = (vetId, newHistory) =>
+        historyService.createHistory(vetId, newHistory)
             .then(() => history.back())
 
     const findHistoryById = (id) =>
@@ -32,6 +34,7 @@ const HistoryEditorComponent = () => {
             <h2>History Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={thisHistory.id}/>
             <label>Vet</label>
             <input className="form-control"
@@ -61,13 +64,20 @@ const HistoryEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createHistory(thisHistory)}>
+                    onClick={() => createHistory(vetId, thisHistory)}>
                 Create
             </button>
             <button className="btn btn-primary"
                     onClick={() => updateHistory(thisHistory.id, thisHistory)}>
                 Save
             </button>
+
+            <br/>
+            <Link to={`/vets/${thisHistory.vetId}`}>
+                <div className="form-group row">
+                    <h2>Vet Information</h2>
+                </div>
+            </Link>
         </div>
     )
 }

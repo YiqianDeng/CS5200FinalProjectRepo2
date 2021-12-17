@@ -32,6 +32,7 @@ const VetEditorComponent = () => {
             <h2>Vet Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={vet.id}/>
             <label>Specialty</label>
             <input className="form-control"
@@ -66,6 +67,15 @@ const VetEditorComponent = () => {
             <Link to={`/vets/${vet.id}/availabilities`}>
                 <h2>Availabilities</h2>
             </Link>
+            <br/>
+            <Link to={`/vets/${vet.id}/reservations`}>
+                <h2>Reservations</h2>
+            </Link>
+            <br/>
+            <Link to={`/vets/${vet.id}/histories`}>
+                <h2>Histories</h2>
+            </Link>
+
         </div>
     )
 }
