@@ -24,7 +24,7 @@ public class ReservationDao {
     @Autowired
     PetRepository petRepository;
 
-    @PostMapping("/api/pets/{petId}/vets/{vetId}/reservations")
+    @PostMapping("/api/vets/{vetId}/reservations")
     public Reservation createReservation(
             @PathVariable("petId") Integer petId,
             @PathVariable("vetId") Integer vetId,
@@ -45,6 +45,13 @@ public class ReservationDao {
     @GetMapping("/api/reservations/{id}")
     public Reservation findReservationById(@PathVariable("id") Integer id) {
         return reservationRepository.findReservationById(id);
+    }
+
+    @GetMapping("/api/vets/{vetId}/reservations")
+    public List<Reservation> findReservationsForVet(
+            @PathVariable("vetId") Integer vetId) {
+        Vet vet = vetRepository.findById(vetId).get();
+        return vet.getReservations();
     }
 
     @PutMapping("/api/reservations/{id}")

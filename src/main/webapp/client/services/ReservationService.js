@@ -1,4 +1,5 @@
 const RESERVATIONS_URL = "http://localhost:8080/api/reservations"
+const VETS_URL = "http://localhost:8080/api/vets"
 
 export const findAllReservations = () =>
     fetch(RESERVATIONS_URL)
@@ -12,9 +13,12 @@ export const deleteReservation = (id) =>
     fetch(`${RESERVATIONS_URL}/${id}`, {
         method: "DELETE"
     })
+export const findReservationsForVet = (vetId) =>
+    fetch(`${VETS_URL}/${vetId}/reservations`)
+        .then(response => response.json())
 
-export const createReservation = (reservation) =>
-    fetch(RESERVATIONS_URL, {
+export const createReservation = (vetId,reservation) =>
+    fetch(`${RESERVATIONS_URL}/${vetId}/pets`, {
         method: 'POST',
         body: JSON.stringify(reservation),
         headers: {'content-type': 'application/json'}
@@ -34,5 +38,6 @@ export default {
     findReservationById,
     deleteReservation,
     createReservation,
-    updateReservation
+    updateReservation,
+    findReservationsForVet
 }

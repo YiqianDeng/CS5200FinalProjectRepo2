@@ -33,6 +33,7 @@ const ServiceEditorComponent = () => {
             <h2>Service Editor</h2>
             <label>ID</label>
             <input className="form-control"
+                   readOnly
                    value={service.id}/>
             <label>Name</label>
             <input className="form-control"

@@ -6,14 +6,16 @@ const AvailabilityEditorComponent = () => {
 
     const {id} = useParams()
     const [availability, setAvailability] = useState({})
+    let vetId;
+
     useEffect(() => {
         if(id !== "new") {
             findAvailabilityById(id)
         }
     }, []);
 
-    const createAvailability = (newAvailability) =>
-        availabilityService.createAvailability(newAvailability)
+    const createAvailability = (vetId, newAvailability) =>
+        availabilityService.createAvailability(vetId, newAvailability)
             .then(() => history.back())
 
     const findAvailabilityById = (id) =>
@@ -60,7 +62,12 @@ const AvailabilityEditorComponent = () => {
                        setAvailability(availability =>
                            ({...availability, timeSlot: e.target.value}))}
                    value={availability.timeSlot}/>
-
+            <label>Pet Owner ID</label>
+            <input className="form-control"
+                   onChange={(e) =>
+                   {vetId = e.target.value}}
+                   value={availability.vetId}
+            />
             <br/>
             <button className="btn btn-warning"
                     onClick={() => history.back()}>
@@ -71,7 +78,7 @@ const AvailabilityEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createAvailability(availability)}>
+                    onClick={() => createAvailability(vetId, availability)}>
                 Create
             </button>
             <button className="btn btn-primary"
@@ -84,6 +91,7 @@ const AvailabilityEditorComponent = () => {
                     <h2>Vet Information</h2>
                 </div>
             </Link>
+            <br/>
         </div>
     )
 }

@@ -21,6 +21,8 @@ import HistoryServicesForHistoryComponent from "./components/HistoryServicesForH
 import HistoryServicesForServiceComponent from "./components/HistoryServicesForServiceComponent";
 import ReserveServicesForServiceComponent from "./components/HistoryServicesForServiceComponent";
 import AvailabilitiesForVetComponent from "./components/AvailabilitiesForVetComponent";
+import ReservationsForVetComponent from "./components/ReservationsForVetComponent";
+import HistoriesForVetComponent from "./components/HistoriesForVetComponent";
 
 const {HashRouter, Route, Link} = window.ReactRouterDOM;
 const App = () => {
@@ -158,6 +160,16 @@ const App = () => {
                 <Route path="/vets/:vetId/availabilities" exact={true}>
                     <AvailabilitiesForVetComponent/>
                 </Route>
+
+                <Route path="/vets/:vetId/histories" exact={true}>
+                    <HistoriesForVetComponent/>
+                </Route>
+
+                <Route path="/vets/:vetId/reservations" exact={true}>
+                    <ReservationsForVetComponent/>
+                </Route>
+
+
 
             </HashRouter>
         </div>
