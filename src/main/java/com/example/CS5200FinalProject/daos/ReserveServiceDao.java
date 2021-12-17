@@ -58,11 +58,20 @@ public class ReserveServiceDao {
     return reserveServiceRepository.findReserveServiceById(id);
   }
 
+
+  @GetMapping("/api/reservations/{reservationId}/reserve_services")
+  public List<ReserveService> findReserveServicesForReservation(
+          @PathVariable("reservationId") Integer reservationId) {
+      Reservation reservation = reservationRepository.findById(reservationId).get();
+      return reservation.getReserveServices();
+  }
+
   @GetMapping("/api/services/{serviceId}/reserve_services")
   public List<ReserveService> findReserveServicesForService(
           @PathVariable("serviceId") Integer serviceId) {
     Service service = serviceRepository.findById(serviceId).get();
     return service.getReserveServices();
+
   }
 
   @DeleteMapping("/api/reserve_services/{reserve_servicesId}")

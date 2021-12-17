@@ -5,6 +5,7 @@ const {useParams, useHistory, Link} = window.ReactRouterDOM;
 const HistoryEditorComponent = () => {
     const {id} = useParams()
     const [thisHistory, setHistory] = useState({})
+    let petId;
     let vetId;
 
     useEffect(() => {
@@ -13,8 +14,12 @@ const HistoryEditorComponent = () => {
         }
     }, []);
 
+    const createHistory = (petId, newHistory) =>
+        historyService.createHistory(petId, newHistory)
+
     const createHistory = (vetId, newHistory) =>
         historyService.createHistory(vetId, newHistory)
+
             .then(() => history.back())
 
     const findHistoryById = (id) =>
@@ -45,8 +50,7 @@ const HistoryEditorComponent = () => {
             <label>Pet</label>
             <input className="form-control"
                    onChange={(e) =>
-                       setHistory(thisHistory =>
-                           ({...thisHistory, pet: e.target.value}))}
+                   {petId = e.target.value}}
                    value={thisHistory.petId}/>
             <label>Time</label>
             <input className="form-control"
@@ -64,17 +68,23 @@ const HistoryEditorComponent = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createHistory(vetId, thisHistory)}>
+                    onClick={() => createHistory(petId, vetId, thisHistory)}>
+
                 Create
             </button>
             <button className="btn btn-primary"
                     onClick={() => updateHistory(thisHistory.id, thisHistory)}>
                 Save
             </button>
+            <Link to={`/pets/${history.petId}`}>
+                <div className="form-group row">
+                    <h2>Pet Information</h2>
+                    </Link>
 
             <br/>
             <Link to={`/histories/${history.id}/history_services`}>
                 <h2>History Services</h2>
+            </Link>
 
             <br/>
             <Link to={`/vets/${thisHistory.vetId}`}>

@@ -67,6 +67,10 @@ const ReserveServiceEditorComponent = () => {
                 Save
             </button>
             <br/>
+            <Link to={`/reservations/${reserveService.reservationId}`}>
+                <div className="form-group row">
+                    <h2>Reservation Information</h2>
+            </Link>
             <Link to={`/services/${reserveService.serviceId}`}>
                 <div className="form-group row">
                     <h2>Service Information</h2>
