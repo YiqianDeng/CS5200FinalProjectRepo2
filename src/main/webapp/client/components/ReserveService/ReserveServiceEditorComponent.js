@@ -26,10 +26,6 @@ const ReserveServiceEditorComponent = () => {
         reserveServiceService.deleteReserveService(id)
             .then(() => history.back())
 
-    const updateReserveService = (id, newReserveService) =>
-        reserveServiceService.updateReserveService(id, newReserveService)
-            .then(() => history.back())
-
     return (
         <div>
             <h2>Reserve Service Editor</h2>

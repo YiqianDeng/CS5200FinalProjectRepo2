@@ -25,11 +25,7 @@ const HistoryServiceEditorComponent = () => {
     const deleteHistoryService = (id) =>
         historyServiceService.deleteHistoryService(id)
             .then(() => history.back())
-
-    const updateHistoryService = (id, newHistoryService) =>
-        historyServiceService.updateHistoryService(id, newHistoryService)
-            .then(() => history.back())
-
+    
     return (
         <div>
             <h2>History Service Editor</h2>
